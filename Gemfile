@@ -26,7 +26,7 @@ gem 'jquery-rails'
 
 gem 'figaro'
 
-gem 'httparty'
+gem 'oauth', '~> 0.4.7'
 gem 'json'
 
 group :development, :test do
