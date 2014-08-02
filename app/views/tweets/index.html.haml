@@ -1,2 +1,4 @@
 %h1 Tweets#index
-%p Find me in app/views/tweets/index.html.haml
+- @tweets.each do |tweet|
+  %h3
+    = tweet
