@@ -33,12 +33,17 @@ end
 
 def list_tweets(home_timeline)
   tweets = []
+  search_terms = ['jr', 'web', 'dev', 'engineer', 'ruby', 'rails']
   home_timeline.each do |tweet|
-    tweets << tweet['text']
+    text = tweet['text'].downcase
+    result = 0
+    search_terms.each do |term|
+      result += 1 if text.include?(term)
+    end
+    tweets << tweet['text'] if result >= 2
   end
   tweets
 end
-
 
 
 
