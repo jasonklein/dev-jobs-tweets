@@ -26,8 +26,6 @@ gem 'jquery-rails'
 
 gem 'figaro'
 
-gem 'devise'
-gem 'omniauth-twitter'
 gem 'httparty'
 gem 'json'
 
