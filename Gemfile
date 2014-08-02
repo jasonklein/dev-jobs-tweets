@@ -22,6 +22,28 @@ end
 
 gem 'jquery-rails'
 
+gem 'figaro'
+
+gem 'devise'
+gem 'omniauth-twitter'
+gem 'httparty'
+gem 'json'
+
+group :development, :test do
+
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
+  gem 'binding_of_caller'
+  gem 'better_errors'
+
+end
+
+# For Heroku
+
+gem 'rails_12factor', group: :production
+
+ruby '2.0.0'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
