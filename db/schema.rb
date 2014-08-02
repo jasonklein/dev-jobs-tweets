@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140802084109) do
+ActiveRecord::Schema.define(:version => 20140802085909) do
 
   create_table "tweets", :force => true do |t|
     t.string   "tweet_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20140802084109) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "accesstoken"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
