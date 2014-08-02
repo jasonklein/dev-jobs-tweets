@@ -28,6 +28,7 @@ gem 'figaro'
 
 gem 'oauth', '~> 0.4.7'
 gem 'json'
+gem 'rails_autolink'
 
 group :development, :test do
 
