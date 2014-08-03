@@ -95,7 +95,7 @@ module TwitterApiHelper
           t.text = text
           t.tweeter = tweet["user"]["screen_name"]
           t.tweeter_id = tweeter_id
-          t.tweeter_avatar = tweet["user"]["profile_image_url"]
+          t.remote_tweeter_avatar_url = tweet["user"]["profile_image_url"]
           t.twitter_created_at = tweet["created_at"]
           t.by_friend = friends_ids ? attribute_for_tweet_by_friend(friends_ids, tweeter_id) : true
           t.add_hashtags(hashtags_data)

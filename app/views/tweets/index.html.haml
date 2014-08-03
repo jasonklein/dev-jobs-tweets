@@ -1,5 +1,6 @@
 %h1 Tweets#index
 - @tweets.each do |tweet|
   .tweet-box
+    = image_tag tweet.tweeter_avatar
     %h3
       = auto_link(tweet.text, html: {target: 'blank'})
