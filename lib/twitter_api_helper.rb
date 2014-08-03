@@ -132,6 +132,7 @@ module TwitterApiHelper
   end
 
   def get_and_save_tweets
+    save_tweets(home_timeline_data)
     save_tweets(searches_data)
   end
 
