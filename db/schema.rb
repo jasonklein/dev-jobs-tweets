@@ -11,10 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140803130445) do
+ActiveRecord::Schema.define(:version => 20140803141517) do
+
+  create_table "hashtags", :force => true do |t|
+    t.string   "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tweet_id"
+    t.integer  "hashtag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "taggings", ["hashtag_id"], :name => "index_taggings_on_hashtag_id"
+  add_index "taggings", ["tweet_id"], :name => "index_taggings_on_tweet_id"
 
   create_table "tweets", :force => true do |t|
-    t.string   "tweet_id"
+    t.string   "twitter_id"
     t.string   "text"
     t.string   "tweeter"
     t.datetime "created_at",         :null => false
