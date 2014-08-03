@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140803162616) do
+ActiveRecord::Schema.define(:version => 20140803171637) do
 
   create_table "hashtags", :force => true do |t|
     t.string   "text"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20140803162616) do
     t.datetime "twitter_created_at"
     t.string   "tweeter_avatar"
     t.boolean  "by_friend",          :default => false
+    t.string   "tweeter_id"
   end
 
 end
