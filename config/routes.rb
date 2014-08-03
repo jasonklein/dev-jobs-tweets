@@ -1,7 +1,5 @@
 DevJobsTweetsApp::Application.routes.draw do
   
-get "tweets/index"
-
 root to: "tweets#index"
 
   # The priority is based upon order of creation:
