@@ -2,4 +2,4 @@
 - @tweets.each do |tweet|
   .tweet-box
     %h3
-      = auto_link(tweet, html: {target: 'blank'})
+      = auto_link(tweet.text, html: {target: 'blank'})

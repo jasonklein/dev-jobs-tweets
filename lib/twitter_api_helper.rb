@@ -24,16 +24,16 @@ module TwitterApiHelper
   end
 
   def twitter_api_friends_url
-    "https://api.twitter.com/1.1/friends/ids.json?user_id=#{ENV['TWITTER_ID']}"
+    "https://api.twitter.com/1.1/friends/ids.json?user_id=#{ENV['TWITTER_ACCOUNT_ID']}"
   end
 
-  ### For home timeline, requester is the access_token
-  ### For search, requester is the consumer
+  ### For home timeline, requester is the oauth_access_token
+  ### For search, requester is the oauth_consumer
 
-  def get_dev_jobs_tweets_array(requester, url)
+  def get_dev_jobs_tweets_array(requester, url, provenance="")
     response = requester.request(:get, url)
     if response.code == "200"
-      if requester == oauth_access_token
+      if provenance == "home"
         tweets_array = JSON.parse(response.body)
       else
         search_results = JSON.parse(response.body)
@@ -46,9 +46,9 @@ module TwitterApiHelper
   end
 
   def home_timeline_data
-    tweets = get_dev_jobs_tweets_array(oauth_access_token, twitter_api_home_timeline_url)
+    tweets = get_dev_jobs_tweets_array(oauth_access_token, twitter_api_home_timeline_url, "home")
     provenance = "home"
-    { twitter_response: tweets, provenance: "home" }
+    { twitter_response: tweets || [], provenance: "home" }
   end
 
   def searches_data
@@ -59,14 +59,13 @@ module TwitterApiHelper
       term_1 = pair[0]
       term_2 = pair[1]
       search_url = twitter_api_search_url(term_1, term_2)
-      tweets << get_dev_jobs_tweets_array(oauth_consumer, search_url)
+      tweets += get_dev_jobs_tweets_array(oauth_consumer, search_url)
     end
-    { twitter_response: tweets, provenance: "search" }
+    { twitter_response: tweets || [], provenance: "search" }
   end
 
   def twitter_friends_ids
-    consumer = oauth_consumer
-    response = consumer.request(:get, twitter_api_friends_url)
+    response = oauth_consumer.request(:get, twitter_api_friends_url)
     if response.code == "200"
       friends_data = JSON.parse(response.body)
       friends_data["ids"]
@@ -99,7 +98,7 @@ module TwitterApiHelper
           t.tweeter_avatar = tweet["user"]["profile_image_url"]
           t.twitter_created_at = tweet["created_at"]
           t.by_friend = friends_ids ? attribute_for_tweet_by_friend(friends_ids, tweeter_id) : true
-          t.add_hashtags
+          t.add_hashtags(hashtags_data)
         end
       end
     end
@@ -114,22 +113,26 @@ module TwitterApiHelper
       search_filter_terms.each do |term|
         relevance_count += 1 if text.include?(term)
       end
+      if relevance_count > 0
+        true
+      else
+        false
+      end
     else
       home_filter_terms = search_filter_terms + ["jr", "web", "dev", "engineer", "ruby", "rails"]
       home_filter_terms.each do |term|
         relevance_count += 1 if text.include?(term)
       end
-    end
-
-    if relevance_count >= 2
-      true
-    else
-      false
-    end
+      if relevance_count >= 2
+        true
+      else
+        false
+      end
+    end 
   end
 
   def get_and_save_tweets
-    save_tweets(home_timeline_data)
+    save_tweets(searches_data)
   end
 
 end
