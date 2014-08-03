@@ -11,14 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140802151609) do
+ActiveRecord::Schema.define(:version => 20140803130445) do
 
   create_table "tweets", :force => true do |t|
     t.string   "tweet_id"
     t.string   "text"
     t.string   "tweeter"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.datetime "twitter_created_at"
+    t.string   "tweeter_avatar"
   end
 
 end
