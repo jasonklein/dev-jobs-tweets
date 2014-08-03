@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140803141517) do
+ActiveRecord::Schema.define(:version => 20140803143514) do
 
   create_table "hashtags", :force => true do |t|
     t.string   "text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "taggings_count"
   end
 
   create_table "taggings", :force => true do |t|
