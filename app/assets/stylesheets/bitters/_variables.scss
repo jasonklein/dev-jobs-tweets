@@ -25,6 +25,26 @@ $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 $dusty-blue: #5681DE;
+$goldenrod: #F5BE0A;
+$hot-salmon: #FF124D;
+$light-turquoise: #2FB9E8;
+$electric-green: #00E820;
+
+// Tweet Hex Colors
+
+$new-tweet-color: $goldenrod;
+$junior-color: $electric-green;
+
+$by-friend-base-color: $hot-salmon;
+$by-friend-1-color: $by-friend-base-color;
+$by-friend-2-color: tint($by-friend-base-color, 20);
+$by-friend-3-color: shade($by-friend-base-color, 20);
+
+$by-stranger-base-color: $light-turquoise;
+$by-stranger-1-color: $by-stranger-base-color;
+$by-stranger-2-color: tint($by-stranger-base-color, 20);
+$by-stranger-3-color: shade($by-stranger-base-color, 20);
+
 
 // Body Color
 $base-body-color: white;
@@ -35,8 +55,8 @@ $base-accent-color: $blue;
 $headline-color: $dusty-blue;
 
 //  Text Link Colors
-$base-link-color: $base-accent-color;
-$hover-link-color: darken($base-accent-color, 15);
+$base-link-color: white;
+$hover-link-color: darken($base-link-color, 35);
 
 // Border color
 $base-border-color: $light-gray;

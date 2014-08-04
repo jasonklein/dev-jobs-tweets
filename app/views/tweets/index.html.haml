@@ -3,7 +3,7 @@
   %h5 *Updates hourly.
 #tweets-container
   - @tweets.each do |tweet|
-    .tweet-hex
+    %div{class: "tweet-hex-#{tweet_hex_class(tweet)}"}
       .tweet-contents
         .tweeter-avatar
           = image_tag tweet.tweeter_avatar

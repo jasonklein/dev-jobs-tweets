@@ -3,6 +3,58 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.tweet-hex {
+  width: 250px;
+  height: 138px;
+/*  background: #77E8C2;
+*/  position: relative;
+  margin: 70px 10px;
+  display: inline-block;
+  vertical-align: top;
+  &:before {
+    content: "";
+    position: absolute;
+    top: -63px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-bottom: 63px solid #77E8C2;
+    z-index: -1000;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -63px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-top: 63px solid #77E8C2;
+    z-index: -1000;
+  }
+  .tweet-contents {
+    margin-top: -60px;
+    padding: 20px;
+    overflow: hidden;
+    .tweeter-avatar {
+      text-align: center;
+      img {
+        border-radius: 6px;
+        margin: 2px;
+      }
+    }
+    .tweeter-handle {
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+
+
 #tweets-container {
   padding: 20px;
   @include span-columns(11);
@@ -11,122 +63,84 @@
     text-align: center;
     font-family: $subheadline-font-family;
   }
-  .tweet-hex {
-    /*width: 200px;
-    height: 210px;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 20px;
-    vertical-align: top;
-    display: inline-block;
-    background-color: #77E8C2;*/
-    width: 250px;
-    height: 138px;
-    background: #77E8C2;
-    position: relative;
-    margin: 70px 10px;
-    display: inline-block;
-    vertical-align: top;
+  .tweet-hex-new {
+    @extend .tweet-hex;
+    background-color: $new-tweet-color;
     &:before {
-      content: "";
-      position: absolute;
-      top: -63px;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-left: 125px solid transparent;
-      border-right: 125px solid transparent;
-      border-bottom: 63px solid #77E8C2;
-      z-index: -1000;
+      border-bottom: 63px solid $new-tweet-color;
     }
     &:after {
-      content: "";
-      position: absolute;
-      bottom: -63px;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-left: 125px solid transparent;
-      border-right: 125px solid transparent;
-      border-top: 63px solid #77E8C2;
-      z-index: -1000;
-    }
-    .tweet-contents {
-      margin-top: -60px;
-      padding: 20px;
-      overflow: hidden;
-      .tweeter-avatar {
-        text-align: center;
-        img {
-          border-radius: 6px;
-          margin: 2px;
-        }
-      }
-      .tweeter-handle {
-        font-weight: bold;
-        text-align: center;
-      }
+      border-top: 63px solid $new-tweet-color;
     }
   }
-}
-
-
-
-
-
-
-
-
-.tweet-hex {
-  width: 100px;
-  height: 55px;
-  background: #77E8C2;
-  position: relative;
-  &:before {
-    content: "";
-    position: absolute;
-    top: -25px;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 25px solid #77E8C2;
+  .tweet-hex-junior {
+    @extend .tweet-hex;
+    background-color: $junior-color;
+    &:before {
+      border-bottom: 63px solid $junior-color;
+    }
+    &:after {
+      border-top: 63px solid $junior-color;
+    }
   }
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: -25px;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 25px solid #77E8C2;
+  .tweet-hex-by-friend-1 {
+    @extend .tweet-hex;
+    background-color: $by-friend-1-color;
+    &:before {
+      border-bottom: 63px solid $by-friend-1-color;
+    }
+    &:after {
+      border-top: 63px solid $by-friend-1-color;
+    }
+  }
+  .tweet-hex-by-friend-2 {
+    @extend .tweet-hex;
+    background-color: $by-friend-2-color;
+    &:before {
+      border-bottom: 63px solid $by-friend-2-color;
+    }
+    &:after {
+      border-top: 63px solid $by-friend-2-color;
+    }
+  }
+  .tweet-hex-by-friend-3 {
+    @extend .tweet-hex;
+    background-color: $by-friend-3-color;
+    &:before {
+      border-bottom: 63px solid $by-friend-3-color;
+    }
+    &:after {
+      border-top: 63px solid $by-friend-3-color;
+    }
+  }
+  .tweet-hex-by-stranger-1 {
+    @extend .tweet-hex;
+    background-color: $by-stranger-1-color;
+    &:before {
+      border-bottom: 63px solid $by-stranger-1-color;
+    }
+    &:after {
+      border-top: 63px solid $by-stranger-1-color;
+    }
+  }
+  .tweet-hex-by-stranger-2 {
+    @extend .tweet-hex;
+    background-color: $by-stranger-2-color;
+    &:before {
+      border-bottom: 63px solid $by-stranger-2-color;
+    }
+    &:after {
+      border-top: 63px solid $by-stranger-2-color;
+    }
+  }
+  .tweet-hex-by-stranger-3 {
+    @extend .tweet-hex;
+    background-color: $by-stranger-3-color;
+    &:before {
+      border-bottom: 63px solid $by-stranger-3-color;
+    }
+    &:after {
+      border-top: 63px solid $by-stranger-3-color;
+    }
   }
 }
-
-/*
-.tweet-hex:before {
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 25px solid #77E8C2;
-}
-.tweet-hex:after {
-  content: "";
-  position: absolute;
-  bottom: -25px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 25px solid #77E8C2;
-}
-*/
