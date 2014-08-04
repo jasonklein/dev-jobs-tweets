@@ -12,23 +12,115 @@
       font-family: $subheadline-font-family;
     }
   }
-  .tweet-box {
-    width: 200px;
+  .tweet-hex {
+    /*width: 200px;
     height: 210px;
     margin: 5px;
     padding: 10px;
     border-radius: 20px;
     vertical-align: top;
     display: inline-block;
-    background-color: #77E8C2;
-    @include outer-container;
+    background-color: #77E8C2;*/
+    width: 250px;
+    height: 138px;
+    background: #77E8C2;
+    position: relative;
+    margin: 150px 10px;
+    padding: 20px;
+    display: inline-block;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -63px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 125px solid transparent;
+      border-right: 125px solid transparent;
+      border-bottom: 63px solid #77E8C2;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -63px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 125px solid transparent;
+      border-right: 125px solid transparent;
+      border-top: 63px solid #77E8C2;
+    }
+    .tweeter-avatar {
+      text-align: center;
+      img {
+        border-radius: 6px;
+        margin: 2px;
+      }
+    }
     .tweeter-handle {
       font-weight: bold;
     }
-    img {
-      float: left;
-      border-radius: 10px;
-      margin: 2px;
-    }
   }
 }
+
+
+
+
+
+
+
+
+.tweet-hex {
+  width: 100px;
+  height: 55px;
+  background: #77E8C2;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid #77E8C2;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid #77E8C2;
+  }
+}
+
+/*
+.tweet-hex:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid #77E8C2;
+}
+.tweet-hex:after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid #77E8C2;
+}
+*/
