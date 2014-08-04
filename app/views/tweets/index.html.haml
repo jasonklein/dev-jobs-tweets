@@ -1,6 +1,9 @@
-%h1 Tweets#index
-- @tweets.each do |tweet|
-  .tweet-box
-    = image_tag tweet.tweeter_avatar
-    %h3
-      = auto_link(tweet.text, html: {target: 'blank'})
+#header
+  %h1 DevJobs(?)Tweets
+#tweets-container
+  #friends-tweets
+    %h2.title From Following
+    = render partial: 'tweets', locals: {tweets: @friend_tweets}
+  #strangers-tweets
+    %h2.title From Searching
+    = render partial: 'tweets', locals: {tweets: @friend_tweets}

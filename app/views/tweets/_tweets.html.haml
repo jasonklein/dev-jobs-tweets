@@ -1,0 +1,8 @@
+- tweets.each do |tweet|
+  .tweet-box
+    %p
+      = image_tag tweet.tweeter_avatar
+      %span.tweeter-handle
+        = link_to tweet.tweeter_handle, tweet.tweeter_url
+    %p
+      = auto_link(tweet.text, html: {target: 'blank'})

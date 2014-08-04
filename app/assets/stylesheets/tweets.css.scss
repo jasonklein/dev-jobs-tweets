@@ -2,18 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-* {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+
+#tweets-container {
+  padding: 20px;
+  #friends-tweets, #strangers-tweets {
+    @include span-columns(6);
+    .title {
+      text-align: center;
+      font-family: $subheadline-font-family;
+    }
+  }
+  .tweet-box {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    vertical-align: top;
+    display: inline-block;
+    background-color: #77E8C2;
+    @include outer-container;
+    .tweeter-handle {
+      font-weight: bold;
+    }
+    img {
+      float: left;
+    }
+  }
 }
-
-.tweet-box {
-  width: 250px;
-  height: 200px;
-  margin: 5px;
-  padding: 5px;
-  display: inline-block;
-}
-
-

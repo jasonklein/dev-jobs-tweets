@@ -1,0 +1,9 @@
+#header {
+  @include span-columns(12);
+  @include row(table);
+  h1 {
+    margin-left: 60px;
+    font-family: $headline-font-family;
+    color: $headline-color;
+  }
+}

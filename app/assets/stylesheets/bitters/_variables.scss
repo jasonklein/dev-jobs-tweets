@@ -5,6 +5,8 @@ $serif: $georgia;
 
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
+$headline-font-family: 'Patrick Hand', $sans-serif;
+$subheadline-font-family: 'Carrois Gothic', $sans-serif; 
 
 // Sizes
 ///////////////////////////////////////////////////////////////////////////////
@@ -22,6 +24,7 @@ $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
+$dusty-blue: #5681DE;
 
 // Body Color
 $base-body-color: white;
@@ -29,6 +32,7 @@ $base-body-color: white;
 //  Font Colors
 $base-font-color: $dark-gray;
 $base-accent-color: $blue;
+$headline-color: $dusty-blue;
 
 //  Text Link Colors
 $base-link-color: $base-accent-color;

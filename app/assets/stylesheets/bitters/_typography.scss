@@ -1,7 +1,7 @@
 body {
   color: $base-font-color;
   font-family: $base-font-family;
-  font-size: $base-font-size;
+  font-size: $base-font-size * 0.8;
   -webkit-font-smoothing: antialiased;
   line-height: $base-line-height;
 }
@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: $base-font-size * 2.25; // 16 * 2.25 = 36px
+  font-size: $base-font-size * 8; // 16 * 2.25 = 36px
 }
 
 h2 {

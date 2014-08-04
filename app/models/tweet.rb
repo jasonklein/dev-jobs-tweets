@@ -22,5 +22,13 @@ class Tweet < ActiveRecord::Base
     self.hashtags = self.hashtags.uniq
   end
 
+  def tweeter_handle
+    "@#{self.tweeter}"
+  end
+
+  def tweeter_url
+    "http://twitter.com/account/redirect_by_id?id=#{self.tweeter_id}"
+  end
+
 
 end
