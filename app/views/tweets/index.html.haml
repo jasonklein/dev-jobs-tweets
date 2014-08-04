@@ -49,4 +49,4 @@
         .tweet-text
           = auto_link(tweet.text, html: {target: 'blank'})
         .tweet-age
-          = "#{time_ago_in_words(tweet.created_at)} old".capitalize
+          = "#{time_ago_in_words(tweet.twitter_created_at)} old".capitalize
