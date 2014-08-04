@@ -63,7 +63,7 @@
     text-align: center;
     font-family: $subheadline-font-family;
   }
-  .tweet-hex-new {
+  .tweet-hex-new-tweet {
     @extend .tweet-hex;
     background-color: $new-tweet-color;
     &:before {
