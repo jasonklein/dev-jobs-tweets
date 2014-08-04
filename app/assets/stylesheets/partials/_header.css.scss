@@ -12,12 +12,12 @@
   span {
     font-size: 20px;
   }
+  h3 {
+    margin-bottom: 10px;
+  }
   #color-key {
     margin-top: 20px;
     margin-left: $header-margin;
-    h3 {
-      margin-bottom: 10px;
-    }
     .color-div {
       display: inline-block;
       width: 20px;
@@ -48,5 +48,8 @@
         background-color: $by-stranger-1-color;
       }
     }
+  }
+  #filters-container {
+    margin-left: $header-margin;
   }
 }

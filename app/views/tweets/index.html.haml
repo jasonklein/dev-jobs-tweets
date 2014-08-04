@@ -20,7 +20,24 @@
     .color-div#by-stranger-1
     .color-div#by-stranger-2
     .color-div#by-stranger-3
-
+  %br
+  #filters-container
+    %h3 Filters and Top 10 Hashtags
+    %button{data: {filter: "*"}}
+      all
+    %button{data: {filter: "junior"}}
+      junior
+    %button{data: {filter: "new"}}
+      new
+    %button{data: {filter: "followed"}}
+      followed
+    %button{data: {filter: "searched"}}
+      searched
+    %button{data: {filter: "remote"}}
+      remote    
+    - @hashtags.each do |hashtag|
+      %button{data: {filter: "#{hashtag.text}"}}
+        = "##{hashtag.text}"
 #tweets-container
   - @tweets.each do |tweet|
     %div{class: "tweet-hex-#{tweet_hex_class(tweet)}"}
