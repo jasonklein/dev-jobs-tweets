@@ -26,9 +26,7 @@
     background: #77E8C2;
     position: relative;
     margin: 150px 10px;
-    padding: 20px;
     display: inline-block;
-
     &:before {
       content: "";
       position: absolute;
@@ -39,6 +37,7 @@
       border-left: 125px solid transparent;
       border-right: 125px solid transparent;
       border-bottom: 63px solid #77E8C2;
+      z-index: -1000;
     }
     &:after {
       content: "";
@@ -50,16 +49,23 @@
       border-left: 125px solid transparent;
       border-right: 125px solid transparent;
       border-top: 63px solid #77E8C2;
+      z-index: -1000;
     }
-    .tweeter-avatar {
-      text-align: center;
-      img {
-        border-radius: 6px;
-        margin: 2px;
+    .tweet-contents {
+      margin-top: -60px;
+      padding: 20px;
+      overflow: hidden;
+      .tweeter-avatar {
+        text-align: center;
+        img {
+          border-radius: 6px;
+          margin: 2px;
+        }
       }
-    }
-    .tweeter-handle {
-      font-weight: bold;
+      .tweeter-handle {
+        font-weight: bold;
+        text-align: center;
+      }
     }
   }
 }
