@@ -10,7 +10,7 @@ class Tweet < ActiveRecord::Base
 
   def add_hashtags(hashtags_data)
     self.hashtags = []
-    unhelpful_terms = ["job", "jobs", "getalljobs", "webdeveloper", "developer", "dev", "hiring", "it", "career", "careers", "jobs4u", "tweetmyjobs", "tech", "itjobs", "webdev"]
+    unhelpful_terms = ["job", "jobs", "getalljobs", "webdeveloper", "developer", "dev", "hiring", "it", "career", "careers", "jobs4u", "tweetmyjobs", "tech", "itjobs", "webdev", "oscarassociates"]
     hashtags_data.each do |data_set|
       text = data_set["text"].downcase
       if !unhelpful_terms.include? text
