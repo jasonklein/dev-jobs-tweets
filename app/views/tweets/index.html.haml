@@ -27,22 +27,22 @@
     #filter-buttons
       %button{data: {filter: "*"}}
         all
-      %button{data: {filter: "junior"}}
+      %button{data: {filter: ".junior"}}
         junior
-      %button{data: {filter: "new-tweet"}}
+      %button{data: {filter: ".new-tweet"}}
         new
-      %button{data: {filter: "followed"}}
+      %button{data: {filter: ".followed"}}
         followed
-      %button{data: {filter: "searched"}}
+      %button{data: {filter: ".searched"}}
         searched
-      %button{data: {filter: "remote"}}
+      %button{data: {filter: ".remote"}}
         remote    
       - @hashtags.each do |hashtag|
-        %button{data: {filter: "#{hashtag.text}"}}
+        %button{data: {filter: ".#{hashtag.text}"}}
           = "##{hashtag.text}"
 #tweets-container
   - @tweets.each do |tweet|
-    %div{class: "tweet-hex-#{tweet_hex_main_class(tweet)} #{tweet_hex_filter_classes(tweet, @hashtags)}"}
+    %div{class: "isotope-tweet tweet-hex-#{tweet_hex_main_class(tweet)} #{tweet_hex_filter_classes(tweet, @hashtags)}"}
       .tweet-contents
         .tweeter-avatar
           = image_tag tweet.tweeter_avatar
