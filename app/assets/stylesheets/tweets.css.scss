@@ -5,12 +5,11 @@
 
 #tweets-container {
   padding: 20px;
-  #friends-tweets, #strangers-tweets {
-    @include span-columns(6);
-    .title {
-      text-align: center;
-      font-family: $subheadline-font-family;
-    }
+  @include span-columns(11);
+  @include shift(1);
+  .title {
+    text-align: center;
+    font-family: $subheadline-font-family;
   }
   .tweet-hex {
     /*width: 200px;
@@ -25,8 +24,9 @@
     height: 138px;
     background: #77E8C2;
     position: relative;
-    margin: 150px 10px;
+    margin: 70px 10px;
     display: inline-block;
+    vertical-align: top;
     &:before {
       content: "";
       position: absolute;
