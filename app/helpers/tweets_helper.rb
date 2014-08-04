@@ -3,7 +3,7 @@ module TweetsHelper
     text = tweet.text.downcase
     if text.include?("jr.") || text.include?("junior")
       "junior"
-    elsif tweet.twitter_created_at > 2.hours.ago
+    elsif tweet.twitter_created_at > 35.minutes.ago
       "new-tweet"
     else
       if tweet.by_friend == true
