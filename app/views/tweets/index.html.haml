@@ -3,7 +3,7 @@
 #tweets-container
   #friends-tweets
     %h2.title From Following
-    = render partial: 'tweets', locals: {tweets: @friend_tweets}
+    = render partial: 'tweets', locals: {tweets: @friends_tweets}
   #strangers-tweets
     %h2.title From Searching
-    = render partial: 'tweets', locals: {tweets: @friend_tweets}
+    = render partial: 'tweets', locals: {tweets: @strangers_tweets}
