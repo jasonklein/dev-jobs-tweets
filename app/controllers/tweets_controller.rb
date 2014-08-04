@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.limit(300)
+    @tweets = Tweet.limit(00)
     @hashtags = Hashtag.limit(10)
   end
 end
