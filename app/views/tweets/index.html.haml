@@ -11,3 +11,5 @@
           = link_to tweet.tweeter_handle, tweet.tweeter_url
         .tweet-text
           = auto_link(tweet.text, html: {target: 'blank'})
+        .tweet-age
+          = "#{time_ago_in_words(tweet.created_at)} old".capitalize
