@@ -1,14 +1,15 @@
 !!! 5
 %html
   %head
-    / = favicon_link_tag 'favicon.ico'
+    = favicon_link_tag 'devjobstweets-favicon.ico'
     %title
-      = yield(:title).empty? ? 'dev jobs tweets' : yield(:title)
+      = yield(:title).empty? ? 'Dev Jobs Tweets' : yield(:title)
     = stylesheet_link_tag 'application', :media => 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
-    %meta{property: 'og:site_name', content: 'dev jobs tweets'}
+    %meta{property: 'og:site_name', content: 'Dev Jobs Tweets'}
+    %meta{property: 'og:image', content: display_path_with_protocol_and_host(image_path('devjobstweetslogo.png'))}
 
   %body
     %p.notice
