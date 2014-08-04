@@ -11,7 +11,7 @@ class Tweet < ActiveRecord::Base
 
   def add_hashtags(hashtags_data)
     self.hashtags = []
-    unhelpful_terms = ["job", "jobs", "getalljobs", "webdeveloper", "developer", "dev"]
+    unhelpful_terms = unhelpful_terms_array
     hashtags_data.each do |data_set|
       text = data_set["text"].downcase
       if !unhelpful_terms.include? text
@@ -20,6 +20,10 @@ class Tweet < ActiveRecord::Base
       end
     end
     self.hashtags = self.hashtags.uniq
+  end
+
+  def unhelpful_terms_array
+    ["job", "jobs", "getalljobs", "webdeveloper", "developer", "dev", "hiring", "it", "career", "careers"]
   end
 
   def tweeter_handle
