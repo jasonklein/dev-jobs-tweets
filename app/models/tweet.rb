@@ -23,7 +23,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def unhelpful_terms_array
-    ["job", "jobs", "getalljobs", "webdeveloper", "developer", "dev", "hiring", "it", "career", "careers"]
+    ["job", "jobs", "getalljobs", "webdeveloper", "developer", "dev", "hiring", "it", "career", "careers", "jobs4u", "tweetmyjobs", "tech"]
   end
 
   def tweeter_handle
