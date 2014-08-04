@@ -1,5 +1,5 @@
 module TweetsHelper
-  def tweet_hex_class(tweet)
+  def tweet_hex_main_class(tweet)
     text = tweet.text.downcase
     if text.include?("jr.") || text.include?("junior")
       "junior"
@@ -13,4 +13,24 @@ module TweetsHelper
       end
     end
   end
+
+  def tweet_hex_filter_classes(tweet, hashtags)
+    text = tweet.text.downcase
+    filter_classes = []
+
+    if tweet.hashtags.any?
+      hashtags.each do |hashtag|
+        filter_classes << hashtag.text if tweet.hashtags.include? hashtag
+      end
+    end
+
+    filter_classes << "junior" if text.include?("jr.") || text.include?("junior")
+    filter_classes << "new-tweet" if tweet.twitter_created_at > 2.hours.ago
+    filter_classes << (tweet.by_friend ? "followed" : "searched")
+    filter_classes << "remote" if text.include? "remote"
+    filter_classes = filter_classes.uniq
+    filter_classes_string = filter_classes.join(" ")
+    filter_classes_string
+  end
+
 end

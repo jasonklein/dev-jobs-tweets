@@ -23,13 +23,13 @@
       From searching
   %br
   #filters-container
-    %h3 Filters (most frequent hashtags and other concerns)
+    %h3 Filters (most frequent useful hashtags and other concerns)
     #filter-buttons
       %button{data: {filter: "*"}}
         all
       %button{data: {filter: "junior"}}
         junior
-      %button{data: {filter: "new"}}
+      %button{data: {filter: "new-tweet"}}
         new
       %button{data: {filter: "followed"}}
         followed
@@ -42,7 +42,7 @@
           = "##{hashtag.text}"
 #tweets-container
   - @tweets.each do |tweet|
-    %div{class: "tweet-hex-#{tweet_hex_class(tweet)}"}
+    %div{class: "tweet-hex-#{tweet_hex_main_class(tweet)} #{tweet_hex_filter_classes(tweet, @hashtags)}"}
       .tweet-contents
         .tweeter-avatar
           = image_tag tweet.tweeter_avatar
