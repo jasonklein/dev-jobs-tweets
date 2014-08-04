@@ -6,6 +6,9 @@ class Tweet < ActiveRecord::Base
 
   mount_uploader :tweeter_avatar, TweeterAvatarUploader
 
+  scope :by_friends, where(by_friend: true).order('twitter_created_at DESC')
+  scope :by_strangers, where(by_friend: false).order('twitter_created_at DESC')
+
   def add_hashtags(hashtags_data)
     self.hashtags = []
     unhelpful_terms = ["job", "jobs", "getalljobs", "webdeveloper", "developer", "dev"]
