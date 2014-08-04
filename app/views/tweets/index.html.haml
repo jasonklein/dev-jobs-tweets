@@ -1,6 +1,26 @@
 #header
   %h1 DevJobs(?)Tweets
   %h5 *Updates hourly.
+  %h5 *No guarantee that any of the tweets below relate at all to web development or jobs (but, c'mon, they mostly do).
+  #color-key
+    %h3 Color Key
+    %span
+      New
+    .color-div#new
+    %span
+      Mention Junior/Jr.
+    .color-div#junior
+    %span
+      From those I follow
+    .color-div#by-friend-1
+    .color-div#by-friend-2
+    .color-div#by-friend-3
+    %span
+      From searching (e.g., "web", "ruby", "developer", "designer", etc.)
+    .color-div#by-stranger-1
+    .color-div#by-stranger-2
+    .color-div#by-stranger-3
+
 #tweets-container
   - @tweets.each do |tweet|
     %div{class: "tweet-hex-#{tweet_hex_class(tweet)}"}

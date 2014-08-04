@@ -2,11 +2,51 @@
   @include span-columns(12);
   @include row(table);
   h1 {
-    margin-left: 60px;
+    margin-left: $header-margin;
     font-family: $headline-font-family;
     color: $headline-color;
   }
   h5 {
-    margin-left: 60px;
+    margin-left: $header-margin;
+  }
+  span {
+    font-size: 20px;
+  }
+  #color-key {
+    margin-top: 20px;
+    margin-left: $header-margin;
+    h3 {
+      margin-bottom: 10px;
+    }
+    .color-div {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      vertical-align: top;
+      &#new {
+        background-color: $new-tweet-color;
+      }
+      &#junior {
+        background-color: $junior-color;
+      }
+      &#by-friend-1 {
+        background-color: $by-friend-1-color;
+      }
+      &#by-friend-2 {
+        background-color: $by-friend-2-color;
+      }
+      &#by-friend-3 {
+        background-color: $by-friend-3-color;
+      }
+      &#by-stranger-3 {
+        background-color: $by-stranger-3-color;
+      }
+      &#by-stranger-2 {
+        background-color: $by-stranger-2-color;
+      }
+      &#by-stranger-1 {
+        background-color: $by-stranger-1-color;
+      }
+    }
   }
 }
