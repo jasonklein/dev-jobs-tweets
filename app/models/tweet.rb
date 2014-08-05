@@ -7,6 +7,9 @@ class Tweet < ActiveRecord::Base
   mount_uploader :tweeter_avatar, TweeterAvatarUploader
 
   default_scope order('twitter_created_at DESC')
+  scope :by_friends, where(by_friend: true).order('twitter_created_at DESC')
+  scope :by_strangers, where(by_friend: false).order('twitter_created_at DESC')
+
 
   def add_hashtags(hashtags_data)
     self.hashtags = []
@@ -31,7 +34,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def hashtag_is_helpful?(text)
-    unhelpful_terms = ["wrk", "hiring", "it", "career", "careers", "tech", "oscarassociates"]
+    unhelpful_terms = ["wrk", "hiring", "it", "tech", "oscarassociates"]
 
     if unhelpful_terms.include? text
       false
@@ -42,6 +45,10 @@ class Tweet < ActiveRecord::Base
     elsif text.include? "web"
       false
     elsif text.include? "dev"
+      false
+    elsif text.include? "career"
+      false
+    elsif text.include? "recruit"
       false
     else
       true
