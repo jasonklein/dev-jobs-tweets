@@ -86,22 +86,41 @@ module TwitterApiHelper
       friends_ids = twitter_friends_ids
     end
 
+    tweets_text_array = []
+
     tweets.each do |tweet|
+
       text = tweet["text"]
-      if tweet_seems_relevant(text, provenance)
-        hashtags_data = tweet["entities"]["hashtags"]
-        tweeter_id = tweet["user"]["id_str"]
-        Tweet.where(twitter_id: tweet["id_str"]).first_or_create do |t|
-          t.text = text
-          t.tweeter = tweet["user"]["screen_name"]
-          t.tweeter_id = tweeter_id
-          t.remote_tweeter_avatar_url = tweet["user"]["profile_image_url"]
-          t.twitter_created_at = tweet["created_at"]
-          t.by_friend = friends_ids ? attribute_for_tweet_by_friend(friends_ids, tweeter_id) : true
-          t.add_hashtags(hashtags_data)
+
+      ### Use regex to remove urls from tweets and then check the url-less tweet
+      ### to see if it matches any others of the freshly-pulled tweets
+      ### to minimize duplicates
+
+      text_without_urls = text.gsub(/(?:f|ht)tps?:\/[^\s]+/, '')
+
+      if tweets_text_array.include? text_without_urls
+        return
+      else
+        tweets_text_array << text_without_urls
+        if tweet_seems_relevant(text, provenance)
+          hashtags_data = tweet["entities"]["hashtags"]
+          tweeter_id = tweet["user"]["id_str"]
+          Tweet.where(twitter_id: tweet["id_str"]).first_or_create do |t|
+            t.text = text
+            t.tweeter = tweet["user"]["screen_name"]
+            t.tweeter_id = tweeter_id
+            t.remote_tweeter_avatar_url = tweet["user"]["profile_image_url"]
+            t.twitter_created_at = tweet["created_at"]
+            t.by_friend = friends_ids ? attribute_for_tweet_by_friend(friends_ids, tweeter_id) : true
+            t.add_hashtags(hashtags_data)
+          end
         end
       end
     end
+  end
+
+
+  def check_for_duplicate_tweets()
   end
 
   def tweet_seems_relevant(text, provenance)
