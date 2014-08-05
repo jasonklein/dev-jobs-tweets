@@ -13,7 +13,7 @@ class Tweet < ActiveRecord::Base
     unhelpful_terms = ["newjob", "job", "jobs", "work", "wrk", "getalljobs", "webdeveloper", "developer", "dev", "hiring", "it", "career", "careers", "jobs4u", "tweetmyjobs", "tech", "itjobs", "webdev", "oscarassociates"]
     hashtags_data.each do |data_set|
       text = data_set["text"].downcase
-      if !unhelpful_terms.include?(text) && !text.include?("job") && !text.inlcude?("work")
+      if hashtag_is_helpful?(unhelpful_terms, text)
         hashtag = Hashtag.where(text: text).first_or_create
         self.hashtags << hashtag
       end
@@ -27,6 +27,18 @@ class Tweet < ActiveRecord::Base
 
   def tweeter_url
     "http://twitter.com/account/redirect_by_id?id=#{self.tweeter_id}"
+  end
+
+  def hashtag_is_helpful?(unhelpful_terms, text)
+    if unhelpful_terms.include? text
+      false
+    elsif text.include? "job"
+      false
+    elsif text.include? "work"
+      false
+    else
+      true
+    end  
   end
 
 
