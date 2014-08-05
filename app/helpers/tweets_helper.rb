@@ -18,10 +18,8 @@ module TweetsHelper
     text = tweet.text.downcase
     filter_classes = []
 
-    if tweet.hashtags.any?
-      hashtags.each do |hashtag|
-        filter_classes << hashtag.text if tweet.hashtags.include? hashtag
-      end
+    hashtags.each do |hashtag|
+      filter_classes << hashtag if text.include? "##{hashtag}"
     end
 
     filter_classes << "junior" if text.include?("jr.") || text.include?("junior")

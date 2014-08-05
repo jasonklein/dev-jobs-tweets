@@ -40,8 +40,8 @@
       %button{data: {filter: ".remote"}}
         remote    
       - @hashtags.each do |hashtag|
-        %button{data: {filter: ".#{hashtag.text}"}}
-          = "##{hashtag.text}"
+        %button{data: {filter: ".#{hashtag}"}}
+          = "##{hashtag}"
 #tweets-container
   - @tweets.each do |tweet|
     %div{class: "isotope-tweet tweet-hex-#{tweet_hex_main_class(tweet)} #{tweet_hex_filter_classes(tweet, @hashtags)}"}
