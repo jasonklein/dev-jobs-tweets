@@ -20,7 +20,7 @@ module TwitterApiHelper
 
   def twitter_api_search_url(term_1, term_2)
     date = Date.today.strftime("%Y-%m-%d")
-    "https://api.twitter.com/1.1/search/tweets.json?q=#{term_1}%20#{term_2}%20since%3A#{date}&src=typd&result_type=recent&count=100"
+    "https://api.twitter.com/1.1/search/tweets.json?q=#{term_1}%20#{term_2}%20-rt%20-retweeted%20since%3A#{date}&src=typd&result_type=recent&count=100"
   end
 
   def twitter_api_friends_url
