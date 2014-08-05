@@ -23,7 +23,7 @@ module TweetsHelper
     end
 
     filter_classes << "junior" if text.include?("jr.") || text.include?("junior")
-    filter_classes << "new-tweet" if tweet.twitter_created_at > 2.hours.ago
+    filter_classes << "new-tweet" if tweet.twitter_created_at > 35.minutes.ago
     filter_classes << (tweet.by_friend ? "followed" : "searched")
     filter_classes << "remote" if text.include? "remote"
     filter_classes = filter_classes.uniq
