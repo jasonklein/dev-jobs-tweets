@@ -44,14 +44,13 @@ $by-stranger-1-color: $by-stranger-base-color;
 $by-stranger-2-color: tint($by-stranger-base-color, 20);
 $by-stranger-3-color: shade($by-stranger-base-color, 20);
 
-
-// Body Color
-$base-body-color: white;
-
 //  Font Colors
 $base-font-color: $dark-gray;
 $base-accent-color: $blue;
 $headline-color: $dusty-blue;
+
+// Body Color
+$base-body-color: lighten($headline-color, 35);
 
 //  Text Link Colors
 $base-link-color: white;
