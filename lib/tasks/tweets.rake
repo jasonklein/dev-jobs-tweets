@@ -17,7 +17,7 @@ namespace :tweets do
 
   desc "Destroy old tweets from strangers."
   task :destroy_stranger_tweets => :environment do
-    tweets = Tweet.where(["by_friend = ? and twitter_created_at < ?", false, 1.week.ago])
+    tweets = Tweet.where(["by_friend = ? and twitter_created_at < ?", false, 2.days.ago])
     tweets.each do |tweet|
       tweet.destroy
     end
