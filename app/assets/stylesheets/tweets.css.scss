@@ -11,10 +11,16 @@
   display: inline-block;
   vertical-align: top;
   @include media($large-screen-down) {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     margin: 10px;
     border-radius: 8px;
+  }
+  @include media($mobile-screen) {
+    width: 130px;
+    height: 130px;
+    margin: 5px;
+    border-radius: 5px;
   }
   &:before {
     @include media($large-screen-down) {
@@ -54,8 +60,16 @@
       margin-top: 0;
       padding: 10px;
     }
+    @include media($mobile-screen) {
+      padding: 5px;
+      font-size: $mobile-font-size;
+      line-height: $mobile-line-height;
+    }
     .tweeter-avatar {
       text-align: center;
+      @include media($mobile-screen) {
+        display: none;
+      }
       img {
         border-radius: 6px;
         margin: 2px;
@@ -68,6 +82,9 @@
     .tweet-age {
       font-style: italic;
       text-align: center;
+      @include media($mobile-screen) {
+        display: none;
+      }
     }
   }
 }
@@ -81,8 +98,11 @@
   @include media($large-screen-down) {
     @include span-columns(12);
     @include shift(0);
-/*    padding: 0;
-*/  }
+    padding: 24px;
+  }
+  @include media($mobile-screen) {
+    padding: 20px;
+  }
   .title {
     text-align: center;
     font-family: $subheadline-font-family;

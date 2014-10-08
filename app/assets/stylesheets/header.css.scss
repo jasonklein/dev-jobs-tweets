@@ -7,7 +7,7 @@
     padding-top: 110px;
     @include media($large-screen-down) {
       @include row(table);
-      padding-top: 0px;
+      padding-top: 20px;
     }
     #headline-hex {
       width: 400px;
@@ -79,6 +79,9 @@
     h5 {
       margin-left: $header-margin;
       margin-bottom: 10px;
+      @include media($mobile-screen) {
+        margin-left: $header-margin-mobile;
+      }
       &.mobile-no-show {
         @include media($large-screen-down) {
           display: none;
@@ -94,39 +97,58 @@
     #color-key {
       margin-top: 20px;
       margin-left: $header-margin;
-      .color-div {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        vertical-align: top;
-        &#new {
-          background-color: $new-tweet-color;
+      @include media($mobile-screen) {
+        margin-left: $header-margin-mobile;
+        #color-key-break {
+          display: none;
         }
-        &#junior {
-          background-color: $junior-color;
+      }
+      .color-key-div {
+        display: inline;
+        @include media($mobile-screen) {
+          display: block;
         }
-        &#by-friend-1 {
-          background-color: $by-friend-1-color;
-        }
-        &#by-friend-2 {
-          background-color: $by-friend-2-color;
-        }
-        &#by-friend-3 {
-          background-color: $by-friend-3-color;
-        }
-        &#by-stranger-3 {
-          background-color: $by-stranger-3-color;
-        }
-        &#by-stranger-2 {
-          background-color: $by-stranger-2-color;
-        }
-        &#by-stranger-1 {
-          background-color: $by-stranger-1-color;
+        .color-div {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          vertical-align: top;
+          &#new {
+            background-color: $new-tweet-color;
+          }
+          &#junior {
+            background-color: $junior-color;
+          }
+          &#by-friend-1 {
+            background-color: $by-friend-1-color;
+          }
+          &#by-friend-2 {
+            background-color: $by-friend-2-color;
+          }
+          &#by-friend-3 {
+            background-color: $by-friend-3-color;
+          }
+          &#by-stranger-3 {
+            background-color: $by-stranger-3-color;
+          }
+          &#by-stranger-2 {
+            background-color: $by-stranger-2-color;
+          }
+          &#by-stranger-1 {
+            background-color: $by-stranger-1-color;
+          }
         }
       }
     }
     #filters-container {
       margin-left: $header-margin;
+      @include media($large-screen-down) {
+        margin-right: $header-margin;
+      }
+      @include media($mobile-screen) {
+        margin: 0 $header-margin-mobile;
+        text-align: left;
+      }
     }
     .active-button {
       color: blue;

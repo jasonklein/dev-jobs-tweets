@@ -14,23 +14,27 @@
     %h5.mobile-no-show *Below are the most recent 300 of all results (an archive listing of all is forthcoming), and favors results from following over those from searching.
     #color-key
       %h3 Color Key
-      .color-div#new
-      %span
-        New
-      .color-div#junior
-      %span
-        Mention Junior/Jr.
-      %br
-      .color-div#by-friend-1
-      .color-div#by-friend-2
-      .color-div#by-friend-3
-      %span
-        From following
-      .color-div#by-stranger-1
-      .color-div#by-stranger-2
-      .color-div#by-stranger-3
-      %span
-        From searching
+      #color-key-new.color-key-div
+        .color-div#new
+        %span
+          New
+      #color-key-junior.color-key-div
+        .color-div#junior
+        %span
+          Mention Junior/Jr.
+      %br#color-key-break
+      #color-key-friend.color-key-div
+        .color-div#by-friend-1
+        .color-div#by-friend-2
+        .color-div#by-friend-3
+        %span
+          From following
+      #color-key-stranger.color-key-div
+        .color-div#by-stranger-1
+        .color-div#by-stranger-2
+        .color-div#by-stranger-3
+        %span
+          From searching
     %br
     #filters-container
       %h3 Filters (most frequent useful hashtags and other concerns)
