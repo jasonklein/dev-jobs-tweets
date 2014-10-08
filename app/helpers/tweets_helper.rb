@@ -22,7 +22,7 @@ module TweetsHelper
       filter_classes << hashtag if text.include? "##{hashtag}"
     end
 
-    filter_classes << "junior" if text.include?("jr.") || text.include?("junior")
+    filter_classes << "junior" if text.include?("jr") || text.include?("junior") || text.include?("interns")
     filter_classes << "new-tweet" if tweet.twitter_created_at > 35.minutes.ago
     filter_classes << (tweet.by_friend ? "followed" : "searched")
     filter_classes << "remote" if text.include? "remote"
