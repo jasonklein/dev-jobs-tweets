@@ -52,6 +52,9 @@ $headline-color: $dusty-blue;
 // Body Color
 $base-body-color: lighten($headline-color, 35);
 
+// Button Color
+$isotope-button-color: lighten($headline-color, 20);
+
 //  Text Link Colors
 $base-link-color: white;
 $hover-link-color: darken($base-link-color, 35);
