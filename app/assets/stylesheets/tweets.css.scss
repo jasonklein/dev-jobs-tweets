@@ -17,8 +17,8 @@
     border-radius: 8px;
   }
   @include media($mobile-screen) {
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
     margin: 5px;
     border-radius: 5px;
   }
@@ -101,7 +101,7 @@
     padding: 24px;
   }
   @include media($mobile-screen) {
-    padding: 20px;
+    padding: 10px;
   }
   .title {
     text-align: center;
