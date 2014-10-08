@@ -1,7 +1,7 @@
 module TweetsHelper
   def tweet_hex_main_class(tweet)
     text = tweet.text.downcase
-    if text.include?("jr.") || text.include?("junior")
+    if text.include?("jr") || text.include?("junior") || text.include?("interns")
       "junior"
     elsif tweet.twitter_created_at > 35.minutes.ago
       "new-tweet"
