@@ -10,7 +10,16 @@
   margin: 70px 10px;
   display: inline-block;
   vertical-align: top;
+  @include media($large-screen-down) {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 8px;
+  }
   &:before {
+    @include media($large-screen-down) {
+      display: none;
+    }
     content: "";
     position: absolute;
     top: -63px;
@@ -23,6 +32,9 @@
     z-index: -1000;
   }
   &:after {
+    @include media($large-screen-down) {
+      display: none;
+    }
     content: "";
     position: absolute;
     bottom: -63px;
@@ -38,6 +50,10 @@
     margin-top: -60px;
     padding: 20px;
     overflow: hidden;
+    @include media($large-screen-down) {
+      margin-top: 0;
+      padding: 10px;
+    }
     .tweeter-avatar {
       text-align: center;
       img {
@@ -62,6 +78,11 @@
   padding: 20px;
   @include span-columns(11);
   @include shift(1);
+  @include media($large-screen-down) {
+    @include span-columns(12);
+    @include shift(0);
+/*    padding: 0;
+*/  }
   .title {
     text-align: center;
     font-family: $subheadline-font-family;

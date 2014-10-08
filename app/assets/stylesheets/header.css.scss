@@ -5,13 +5,26 @@
     @include span-columns(5 of 12);
     text-align: center;
     padding-top: 110px;
+    @include media($large-screen-down) {
+      @include row(table);
+      padding-top: 0px;
+    }
     #headline-hex {
       width: 400px;
       height: 220px;
+        @include media($large-screen-down) {
+          width: 280px;
+          height: 280px;
+          border-radius: 10px;
+          margin-bottom: 20px;
+        }
       position: relative;
       display: inline-block;
       background-color: $by-friend-1-color;
       &:before {
+        @include media($large-screen-down) {
+          display: none;
+        }
         content: "";
         position: absolute;
         top: -100px;
@@ -24,6 +37,9 @@
         z-index: -1000;
       }
       &:after {
+        @include media($large-screen-down) {
+          display: none;
+        }
         content: "";
         position: absolute;
         bottom: -100px;
@@ -41,6 +57,9 @@
         padding-top: 20px;
         padding-left: 10px;
         margin: -20px auto;
+        @include media($large-screen-down) {
+          margin: 5% auto auto auto;
+        }
         border-radius: 10px;
         background-color: #FFF;
         font-family: $headline-font-family;
@@ -53,10 +72,18 @@
   }
   #notices-etc {
     @include span-columns(6 of 12);
+    @include media($large-screen-down) {
+      @include row(table);
+    }
     vertical-align: top;
     h5 {
       margin-left: $header-margin;
       margin-bottom: 10px;
+      &.mobile-no-show {
+        @include media($large-screen-down) {
+          display: none;
+        }
+      }
     }
     span {
       font-size: 20px;
