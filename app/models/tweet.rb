@@ -34,7 +34,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def hashtag_is_helpful?(text)
-    unhelpful_terms = ["wrk", "hiring", "it", "tech", "oscarassociates"]
+    unhelpful_terms = ["wrk", "hiring", "it", "tech", "oscarassociates", "roberthalf"]
 
     if unhelpful_terms.include? text
       false
