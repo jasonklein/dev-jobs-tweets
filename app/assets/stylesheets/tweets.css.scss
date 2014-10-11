@@ -79,11 +79,26 @@
       font-weight: bold;
       text-align: center;
     }
+    .tweet-text {
+      @include media($mobile-screen) {
+        display: inline;
+      }
+    }
     .tweet-age {
       font-style: italic;
       text-align: center;
-      @include media($mobile-screen) {
+      span {
         display: none;
+      }
+      @include media($mobile-screen) {
+        text-align: right;
+        display: inline;
+        span {
+          display: initial;
+          color: $base-link-color;
+          font-style: normal;
+          font-size: $base-font-size * 1.5;
+        }
       }
     }
   }
