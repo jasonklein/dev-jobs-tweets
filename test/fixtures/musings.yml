@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  muse_id: MyString
+  title: MyString
+  apply_link: MyString
+  company_logo: MyString
+  muse_created_at: 2014-12-24 11:47:33
+
+two:
+  muse_id: MyString
+  title: MyString
+  apply_link: MyString
+  company_logo: MyString
+  muse_created_at: 2014-12-24 11:47:33
