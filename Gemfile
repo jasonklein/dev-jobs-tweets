@@ -29,6 +29,7 @@ gem 'figaro'
 gem 'oauth', '~> 0.4.7'
 gem 'json'
 gem 'rails_autolink'
+gem 'httparty'
 
 gem 'carrierwave', '0.9.0'
 gem 'fog', '~> 1.3.1'
