@@ -39,19 +39,20 @@ module MuseApiHelper
     results
   end
 
-  def result_seems_irrelevant(title)
+  def is_irrelevant?(title)
     title = title.downcase
     filter_terms = %W(software dev back front end javascript ios mobile android junior jr web ruby rails)
+    ### Returns false if the filter terms ARE included in the result's title
     !filter_terms.any? { |term| title.include? term }
   end
 
-  def result_is_old(creation_date)
+  def is_old?(creation_date)
     creation_date < 3.months.ago
   end
 
-  def parse_musings(results)
+  def filter_musings(results)
     results.delete_if do |result|
-      result_seems_irrelevant(result["title"]) || result_is_old(result["creation_date"])
+      is_irrelevant?(result["title"]) || is_old?(result["creation_date"])
     end
   end
 end
