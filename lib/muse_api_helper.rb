@@ -19,8 +19,8 @@ module MuseApiHelper
     base_url + @extended_api_url
   end
 
-  def get_musings(url)
-    response = HTTParty.get url
+  def get_musings
+    response = HTTParty.get base_url
     if response.code == 200
       page_count = response["page_count"]
       puts page_count
@@ -36,7 +36,8 @@ module MuseApiHelper
         i += 1
       end
     end
-    results
+    filtered_results = filter_musings results
+    save_musings filtered_results
   end
 
   def is_irrelevant?(title)
@@ -53,6 +54,18 @@ module MuseApiHelper
   def filter_musings(results)
     results.delete_if do |result|
       is_irrelevant?(result["title"]) || is_old?(result["creation_date"])
+    end
+    results
+  end
+
+  def save_musings(results)
+    results.each do |result|
+      Musing.where(muse_id: result["id"]).first_or_create do |m|
+        m.title = result["title"]
+        m.apply_link = base_url + result["apply_link"]
+        m.muse_created_at = result["update_date"]
+        m.remote_company_logo_url = result["company_logo"]
+      end
     end
   end
 end
