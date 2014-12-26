@@ -11,10 +11,47 @@ module MuseApiHelper
     base_url + initial_api_url
   end
 
-  def get_musings
-    response = HTTParty.get initial_request_url
+  def extended_request_url(page_number)
+    @extended_api_url = page_number == 1 ? initial_api_url : @extended_api_url
+    @extended_api_url = @extended_api_url || initial_api_url
+    @extended_api_url = @extended_api_url.gsub "page=#{page_number - 1}", "page=#{page_number}"
+    puts @extended_api_url
+    base_url + @extended_api_url
+  end
+
+  def get_musings(url)
+    response = HTTParty.get url
     if response.code == 200
       page_count = response["page_count"]
+      puts page_count
       results = response["results"]
+      i = 1
+      while i < page_count
+        puts results.count
+        extended_response = HTTParty.get extended_request_url(i)
+        if extended_response.code == 200
+          results = results + extended_response["results"]
+        end
+        puts i
+        i += 1
+      end
+    end
+    results
+  end
+
+  def result_seems_irrelevant(title)
+    title = title.downcase
+    filter_terms = %W(software dev back front end javascript ios mobile android junior jr web ruby rails)
+    !filter_terms.any? { |term| title.include? term }
+  end
+
+  def result_is_old(creation_date)
+    creation_date < 3.months.ago
+  end
+
+  def parse_musings(results)
+    results.delete_if do |result|
+      result_seems_irrelevant(result["title"]) || result_is_old(result["creation_date"])
+    end
   end
 end
