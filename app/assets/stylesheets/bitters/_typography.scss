@@ -56,6 +56,13 @@ a {
   }
 }
 
+a.special-link {
+  color: $special-link-color;
+  &:hover {
+    color: $hover-special-link-color;
+  }
+}
+
 hr {
   border-bottom: 1px solid $base-border-color;
   border-left: none;

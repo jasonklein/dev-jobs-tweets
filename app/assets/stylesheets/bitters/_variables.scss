@@ -34,7 +34,7 @@ $muse-blue: #53b6d0;
 // Tweet Hex Colors
 $new-tweet-color: $goldenrod;
 $junior-color: $electric-green;
-$musing-color: #000;
+$musing-color: lighten(#555, 10);
 
 $by-friend-base-color: $hot-salmon;
 $by-friend-1-color: $by-friend-base-color;
@@ -61,6 +61,8 @@ $isotope-button-color: lighten($headline-color, 20);
 //  Text Link Colors
 $base-link-color: white;
 $hover-link-color: darken($base-link-color, 35);
+$special-link-color: $musing-text-color;
+$hover-special-link-color: darken($special-link-color, 25);
 
 // Border color
 $base-border-color: $light-gray;

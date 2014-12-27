@@ -1,11 +1,13 @@
-%div{class: "isotope-tweet tweet-hex-musing junior muse"}
+%div{class: "isotope-tweet tweet-hex-musing junior musing"}
   .tweet-contents
     .tweeter-avatar
       = image_tag musing.company_logo
-    .musing-text
-      = musing.title
-    .tweeter-handle
-      = link_to "Apply", musing.apply_link, target: "blank"
+    .tweeter-handle.musing-company-name
+      = musing_company_url(musing.company_name)
+    .musing-title
+      = musing_hiring_statement(musing)
+    .musing-apply-link
+      = musing_apply_link_statement(musing.apply_link)
     .tweet-age
       %span &#124;
       = "#{time_ago_in_words(musing.muse_created_at)} old".capitalize

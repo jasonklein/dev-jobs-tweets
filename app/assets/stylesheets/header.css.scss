@@ -99,7 +99,7 @@
       margin-left: $header-margin;
       @include media($mobile-screen) {
         margin-left: $header-margin-mobile;
-        #color-key-break {
+        .color-key-break {
           display: none;
         }
       }
@@ -113,8 +113,8 @@
           width: 20px;
           height: 20px;
           vertical-align: top;
-          &#new {
-            background-color: $new-tweet-color;
+          &#musing {
+            background-color: $musing-color;
           }
           &#junior {
             background-color: $junior-color;
