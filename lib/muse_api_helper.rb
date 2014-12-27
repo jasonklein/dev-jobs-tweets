@@ -18,19 +18,19 @@ module MuseApiHelper
     base_url + @extended_api_url
   end
 
-  def get_musings
+  def get_and_save_musings
     response = HTTParty.get initial_request_url
     if response.code == 200
       page_count = response["page_count"]
       results = response["results"]
-      # i = 1
-      # while i < page_count
-      #   extended_response = HTTParty.get extended_request_url(i)
-      #   if extended_response.code == 200
-      #     results = results + extended_response["results"]
-      #   end
-      #   i += 1
-      # end
+      i = 1
+      while i < page_count
+        extended_response = HTTParty.get extended_request_url(i)
+        if extended_response.code == 200
+          results = results + extended_response["results"]
+        end
+        i += 1
+      end
     end
     filtered_results = filter_musings results
     save_musings filtered_results
@@ -61,6 +61,7 @@ module MuseApiHelper
         m.apply_link = base_url + result["apply_link"]
         m.muse_created_at = result["update_date"]
         m.remote_company_logo_url = result["company_small_logo_image"]
+        m.company_name = result["company_name"]
       end
     end
   end

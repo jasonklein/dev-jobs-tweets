@@ -4,7 +4,7 @@ include MuseApiHelper
 namespace :musings do
   desc "Get job posts from The Muse"
   task :get => :environment do
-    get_musings
+    get_and_save_musings
   end
 
   desc "Destroy old musings"
