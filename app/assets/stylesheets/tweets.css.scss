@@ -65,7 +65,7 @@
       font-size: $mobile-font-size;
       line-height: $mobile-line-height;
     }
-    .tweeter-avatar {
+    .tweeter-avatar, .musing-company-logo {
       text-align: center;
       @include media($mobile-screen) {
         display: none;
@@ -74,6 +74,9 @@
         border-radius: 6px;
         margin: 2px;
       }
+    }
+    .musing-company-logo {
+      margin-top: 10px;
     }
     .tweeter-handle {
       font-weight: bold;
