@@ -29,10 +29,12 @@ $goldenrod: #F5BE0A;
 $hot-salmon: #FF124D;
 $light-turquoise: #2FB9E8;
 $electric-green: #00E820;
+$muse-blue: #53b6d0;
 
 // Tweet Hex Colors
 $new-tweet-color: $goldenrod;
 $junior-color: $electric-green;
+$musing-color: #000;
 
 $by-friend-base-color: $hot-salmon;
 $by-friend-1-color: $by-friend-base-color;
@@ -48,6 +50,7 @@ $by-stranger-3-color: shade($by-stranger-base-color, 20);
 $base-font-color: $dark-gray;
 $base-accent-color: $blue;
 $headline-color: $dusty-blue;
+$musing-text-color: $muse-blue;
 
 // Body Color
 $base-body-color: lighten($headline-color, 35);

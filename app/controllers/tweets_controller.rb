@@ -8,11 +8,19 @@ class TweetsController < ApplicationController
     stranger_tweets_limit = 300 - friends_tweets.count
     stranger_tweets = Tweet.by_strangers.limit(stranger_tweets_limit)
     unsorted_tweets = friends_tweets + stranger_tweets
-    sorted_tweets = unsorted_tweets.sort_by { |tweet| tweet.twitter_created_at }
-    
-    @tweets = sorted_tweets.reverse
-    @hashtags = get_hashtags_for_limited_tweets(@tweets)
 
+    @hashtags = get_hashtags_for_limited_tweets(unsorted_tweets)
+
+    musings = Musing.all
+    unsorted_posts = unsorted_tweets + musings
+    sorted_posts = unsorted_posts.sort_by do |post|
+      if post.is_a? Tweet
+        post.twitter_created_at
+      else
+        post.muse_created_at
+      end
+    end
+    @posts = sorted_posts.reverse  
   end
 
   def get_hashtags_for_limited_tweets(tweets)

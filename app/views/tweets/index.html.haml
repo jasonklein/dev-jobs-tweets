@@ -55,15 +55,5 @@
           %button{data: {filter: ".#{hashtag}"}}
             = "##{hashtag}"
 #tweets-container
-  - @tweets.each do |tweet|
-    %div{class: "isotope-tweet tweet-hex-#{tweet_hex_main_class(tweet)} #{tweet_hex_filter_classes(tweet, @hashtags)}"}
-      .tweet-contents
-        .tweeter-avatar
-          = image_tag tweet.tweeter_avatar
-        .tweeter-handle
-          = link_to tweet.tweeter_handle, tweet.tweeter_url, target: "blank"
-        .tweet-text
-          = auto_link(tweet.text, html: {target: 'blank'})
-        .tweet-age
-          %span &#124;
-          = "#{time_ago_in_words(tweet.twitter_created_at)} old".capitalize
+  - @posts.each do |post|
+    = haml_for_post(post)

@@ -1,4 +1,13 @@
 module TweetsHelper
+
+  def haml_for_post(post)
+    if post.is_a? Tweet
+      render partial: "tweet", locals: {tweet: post}
+    else
+      render partial: "musing", locals: {musing: post}
+    end
+  end
+
   def tweet_hex_main_class(tweet)
     text = tweet.text.downcase
     if text.include?("jr.") || text.include?("junior") || text.include?("interns")

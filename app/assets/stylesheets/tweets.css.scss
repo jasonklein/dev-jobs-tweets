@@ -79,10 +79,13 @@
       font-weight: bold;
       text-align: center;
     }
-    .tweet-text {
+    .tweet-text, .musing-text {
       @include media($mobile-screen) {
         display: inline;
       }
+    }
+    .musing-text {
+      color: $musing-text-color;
     }
     .tweet-age {
       font-style: italic;
@@ -200,6 +203,16 @@
     }
     &:after {
       border-top: 63px solid $by-stranger-3-color;
+    }
+  }
+  .tweet-hex-musing {
+    @extend .tweet-hex;
+    background-color: $musing-color;
+    &:before {
+      border-bottom: 63px solid $musing-color;
+    }
+    &:after {
+      border-top: 63px solid $musing-color;
     }
   }
 }

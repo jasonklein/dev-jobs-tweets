@@ -1,0 +1,11 @@
+%div{class: "isotope-tweet tweet-hex-musing junior muse"}
+  .tweet-contents
+    .tweeter-avatar
+      = image_tag musing.company_logo
+    .musing-text
+      = musing.title
+    .tweeter-handle
+      = link_to "Apply", musing.apply_link, target: "blank"
+    .tweet-age
+      %span &#124;
+      = "#{time_ago_in_words(musing.muse_created_at)} old".capitalize
