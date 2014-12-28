@@ -1,6 +1,7 @@
 #archive-header {
   margin-top: 50px;
   margin-left: 75px;
+  margin-right: 75px;
   @include media($large-screen-down) {
     margin: 20px 0 0 0;
   }

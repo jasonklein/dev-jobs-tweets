@@ -1,10 +1,35 @@
 #archive-container {
   margin-left: 75px;
+  margin-right: 75px;
   font-size: $base-font-size;
   @include media($large-screen-down) {
     margin: 0 10px 0px 10px;
   }
   .post-listing {
+    &.musing {
+      background-color: $musing-color;
+    }
+    &.junior {
+      background-color: $junior-color;
+    }
+    &.by-friend-1 {
+      background-color: $by-friend-1-color;
+    }
+    &.by-friend-2 {
+      background-color: $by-friend-2-color;
+    }
+    &.by-friend-3 {
+      background-color: $by-friend-3-color;
+    }
+    &.by-stranger-3 {
+      background-color: $by-stranger-3-color;
+    }
+    &.by-stranger-2 {
+      background-color: $by-stranger-2-color;
+    }
+    &.by-stranger-1 {
+      background-color: $by-stranger-1-color;
+    }
     .post-listing-cell {
       display: inline;
     }

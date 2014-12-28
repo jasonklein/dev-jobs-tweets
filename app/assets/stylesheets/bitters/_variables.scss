@@ -33,20 +33,28 @@ $light-turquoise: #2FB9E8;
 $electric-green: #00E820;
 $muse-blue: #53b6d0;
 
-// Tweet Hex Colors
+// Tweet/Musing Hex Colors
 $new-tweet-color: $goldenrod;
 $junior-color: $electric-green;
 $musing-color: lighten(#555, 10);
+$archive-junior-color: rgba($junior-color, 0.5);
+$archive-musing-color: rgba($musing-color, 0.7);
 
 $by-friend-base-color: $hot-salmon;
 $by-friend-1-color: $by-friend-base-color;
 $by-friend-2-color: tint($by-friend-base-color, 20);
 $by-friend-3-color: shade($by-friend-base-color, 20);
+$archive-by-friend-1-color: rgba($by-friend-1-color, 0.5);
+$archive-by-friend-2-color: rgba($by-friend-2-color, 0.5);
+$archive-by-friend-3-color: rgba($by-friend-3-color, 0.5);
 
 $by-stranger-base-color: $light-turquoise;
 $by-stranger-1-color: $by-stranger-base-color;
 $by-stranger-2-color: tint($by-stranger-base-color, 20);
 $by-stranger-3-color: shade($by-stranger-base-color, 20);
+$archive-by-stranger-1-color: rgba($by-stranger-1-color, 0.5);
+$archive-by-stranger-2-color: rgba($by-stranger-2-color, 0.5);
+$archive-by-stranger-3-color: rgba($by-stranger-3-color, 0.5);
 
 //  Font Colors
 $base-font-color: $dark-gray;

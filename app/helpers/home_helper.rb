@@ -20,25 +20,11 @@ module HomeHelper
     classes = []
     if post.is_a? Musing
       classes << "musing"
-      classes << "archive-junior"
     else
       classes << "tweet"
-      classes << archive_tweet_main_class(post)
+      classes << tweet_hex_main_class(post)
     end
     classes.join(" ")
-  end
-
-  def archive_tweet_main_class(tweet)
-    text = tweet.text.downcase
-    if text_has_junior_terms? text
-      "archive-junior"
-    else
-      if tweet.by_friend == true
-        "archive-by-friend-" + ["1", "2", "3"].sample
-      else
-        "archive-by-stranger-" + ["1", "2", "3"].sample
-      end
-    end
   end
 
 end
