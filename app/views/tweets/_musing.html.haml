@@ -6,8 +6,8 @@
       = musing_company_url(musing.company_name)
     .musing-title
       = musing_hiring_statement(musing)
+    .tweet-age
+      %span.musing-age &#124;
+      = "#{time_ago_in_words(musing.muse_created_at)} old".capitalize
     .musing-apply-link
       = musing_apply_link_statement(musing.apply_link)
-    .tweet-age
-      %span &#124;
-      = "#{time_ago_in_words(musing.muse_created_at)} old".capitalize
