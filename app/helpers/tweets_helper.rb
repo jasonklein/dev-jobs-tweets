@@ -9,8 +9,6 @@ module TweetsHelper
     text = tweet.text.downcase
     if text_has_junior_terms? text
       "junior"
-    elsif tweet.twitter_created_at > 35.minutes.ago
-      "new-tweet"
     else
       if tweet.by_friend == true
         "by-friend-" + ["1", "2", "3"].sample
@@ -29,7 +27,6 @@ module TweetsHelper
     end
 
     filter_classes << "junior" if text_has_junior_terms? text
-    filter_classes << "new-tweet" if tweet.twitter_created_at > 35.minutes.ago
     filter_classes << (tweet.by_friend ? "followed" : "searched")
     filter_classes << "remote" if text.include? "remote"
     filter_classes = filter_classes.uniq
