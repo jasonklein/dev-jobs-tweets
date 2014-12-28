@@ -16,6 +16,12 @@ class HomeController < ApplicationController
     @posts = sort_tweets_and_musings unsorted_tweets, musings
   end
 
+  def archive
+    tweets = Tweet.all
+    musings = Musing.all
+    @posts = sort_tweets_and_musings tweets, musings
+  end
+
   def get_hashtags_for_limited_tweets(tweets)
     hashtags_hash = Hash.new(0)
     hashtags = []

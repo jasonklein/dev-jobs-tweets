@@ -2,9 +2,17 @@ module HomeHelper
 
   def haml_for_post(post)
     if post.is_a? Tweet
-      render partial: "tweet", locals: {tweet: post}
+      if params[:action] == "index"
+        render partial: "index_tweet", locals: {tweet: post}
+      else
+        render partial: "archive_tweet", locals: {tweet: post}
+      end
     else
-      render partial: "musing", locals: {musing: post}
+      if params[:action] == "index"
+        render partial: "index_musing", locals: {musing: post}
+      else
+        render partial: "archive_musing", locals: {musing: post}     
+      end   
     end
   end
   
