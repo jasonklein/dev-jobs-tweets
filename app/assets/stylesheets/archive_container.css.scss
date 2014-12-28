@@ -1,0 +1,12 @@
+#archive-container {
+  margin-left: 75px;
+  font-size: $base-font-size;
+  @include media($large-screen-down) {
+    margin: 0 10px 0px 10px;
+  }
+  .post-listing {
+    .post-listing-cell {
+      display: inline;
+    }
+  }
+}

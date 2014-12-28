@@ -26,7 +26,8 @@
         From
         %a{href: "https://www.themuse.com/", target: "_blank", class: "special-link"}
           The Muse
-#archive-listing
-  %ul
-    - @posts.each do |post|
-      - post
+#archive-container
+  - @posts.each do |post|
+    .post-listing
+      = haml_for_post post
+    
