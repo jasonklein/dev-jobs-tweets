@@ -1,4 +1,31 @@
-
+#archive-header
+  #title
+    DevJobs(?)Tweets
+  #archive-color-key
+    #color-key-junior.color-key-div
+      .color-div#junior
+      %span.mobile-no-show
+        Mention
+      %span
+        Junior/Jr/Internship/Entry Level
+    #color-key-friend.color-key-div
+      .color-div#by-friend-1
+      .color-div#by-friend-2
+      .color-div#by-friend-3
+      %span
+        From following
+    #color-key-stranger.color-key-div
+      .color-div#by-stranger-1
+      .color-div#by-stranger-2
+      .color-div#by-stranger-3
+      %span
+        From searching
+    #color-key-musing.color-key-div
+      .color-div#musing
+      %span
+        From
+        %a{href: "https://www.themuse.com/", target: "_blank", class: "special-link"}
+          The Muse
 %ul
   - @posts.each do |post|
     %li

@@ -1,0 +1,59 @@
+#index-color-key {
+  margin-top: 20px;
+  margin-left: $header-margin;
+  @include media($mobile-screen) {
+    margin-left: $header-margin-mobile;
+    .color-key-break {
+      display: none;
+    }
+  }
+}
+
+#archive-color-key {
+  @include span-columns(12);
+  @include row(table);
+  margin-bottom: 10px;
+  @include media($large-screen-down) {
+    margin: 0 10px 10px 10px;
+  }
+}
+
+.color-key-div {
+  display: inline;
+  span {
+    font-size: $color-key-font-size;
+  }
+  @include media($mobile-screen) {
+    display: block;
+  }
+  .color-div {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    &#musing {
+      background-color: $musing-color;
+    }
+    &#junior {
+      background-color: $junior-color;
+    }
+    &#by-friend-1 {
+      background-color: $by-friend-1-color;
+    }
+    &#by-friend-2 {
+      background-color: $by-friend-2-color;
+    }
+    &#by-friend-3 {
+      background-color: $by-friend-3-color;
+    }
+    &#by-stranger-3 {
+      background-color: $by-stranger-3-color;
+    }
+    &#by-stranger-2 {
+      background-color: $by-stranger-2-color;
+    }
+    &#by-stranger-1 {
+      background-color: $by-stranger-1-color;
+    }
+  }
+}

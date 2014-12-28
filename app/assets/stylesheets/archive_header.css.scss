@@ -1,0 +1,19 @@
+#archive-header {
+  margin-top: 50px;
+  margin-left: 75px;
+  @include media($large-screen-down) {
+    margin: 20px 0 0 0;
+  }
+  #title {
+    @include span-columns(12);
+    @include row(table);
+    font-family: $headline-font-family;
+    font-size: $headline-font-size;
+    color: $headline-color;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    @include media($large-screen-down) {
+      text-align: center;
+    }
+  }
+}
