@@ -4,7 +4,7 @@
   = musing_company_url(musing.company_name)
 .post-listing-cell.post-text
   = musing.title
-.post-listing-cell.post-age{data: {"source-created-at" => musing.muse_created_at }}
-  = "#{time_ago_in_words(musing.muse_created_at)} old".capitalize
 .post-listing-cell.apply-link
   = musing_apply_link_statement(musing.apply_link)
+.post-listing-cell.post-age{data: {"source-created-at" => musing.muse_created_at }}
+  = "#{time_ago_in_words(musing.muse_created_at)} old".capitalize

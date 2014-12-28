@@ -4,7 +4,7 @@
   @include media($large-screen-down) {
     margin: 20px 0 0 0;
   }
-  #title {
+  #archive-title {
     font-family: $headline-font-family;
     font-size: $headline-font-size;
     color: $headline-color;
@@ -13,5 +13,8 @@
     @include media($large-screen-down) {
       text-align: center;
     }
+  }
+  #archive-notice {
+    font-size: $color-key-font-size;
   }
 }

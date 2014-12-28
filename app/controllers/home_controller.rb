@@ -20,6 +20,9 @@ class HomeController < ApplicationController
     tweets = Tweet.all
     musings = Musing.all
     @posts = sort_tweets_and_musings tweets, musings
+    @friends_count = Tweet.by_friends.count
+    @strangers_count = Tweet.by_strangers.count
+    @musings_count = Musing.count
   end
 
   def get_hashtags_for_limited_tweets(tweets)

@@ -1,5 +1,5 @@
 #archive-header
-  #title
+  #archive-title
     DevJobs(?)Tweets
   #archive-color-key
     #color-key-junior.color-key-div
@@ -26,8 +26,11 @@
         From
         %a{href: "https://www.themuse.com/", target: "_blank", class: "special-link"}
           The Muse
+  #archive-notice
+    %p
+      = "There are #{@posts.count} jobs (?) listed below: #{@friends_count} from following, #{@strangers_count} from searching, and #{@musings_count} from The Muse."
+    %p Those from searching are deleted once a week old, from following are deleted once a month old, and from The Muse are deleted once three months old.
 #archive-container
   - @posts.each do |post|
-    .post-listing
+    .post-listing{class: post_listing_classes(post)}
       = haml_for_post post
-    
