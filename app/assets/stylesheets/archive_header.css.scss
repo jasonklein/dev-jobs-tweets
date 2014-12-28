@@ -5,8 +5,6 @@
     margin: 20px 0 0 0;
   }
   #title {
-    @include span-columns(12);
-    @include row(table);
     font-family: $headline-font-family;
     font-size: $headline-font-size;
     color: $headline-color;

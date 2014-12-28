@@ -62,6 +62,6 @@
         - @hashtags.each do |hashtag|
           %button{data: {filter: ".#{hashtag}"}}
             = "##{hashtag}"
-#tweets-container
+#index-container
   - @posts.each do |post|
     = haml_for_post(post)

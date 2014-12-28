@@ -10,8 +10,6 @@
 }
 
 #archive-color-key {
-  @include span-columns(12);
-  @include row(table);
   margin-bottom: 10px;
   @include media($large-screen-down) {
     margin: 0 10px 10px 10px;

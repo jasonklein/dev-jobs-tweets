@@ -26,11 +26,7 @@
         From
         %a{href: "https://www.themuse.com/", target: "_blank", class: "special-link"}
           The Muse
-%ul
-  - @posts.each do |post|
-    %li
-      - if post.is_a? Tweet
-        = post.twitter_created_at
-      - else
-        = post.muse_created_at
-  
+#archive-listing
+  %ul
+    - @posts.each do |post|
+      - post
