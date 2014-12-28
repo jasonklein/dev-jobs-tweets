@@ -1,6 +1,6 @@
 DevJobsTweetsApp::Application.routes.draw do
   
-root to: "tweets#index"
+root to: "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

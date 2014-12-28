@@ -1,32 +1,13 @@
 module TweetsHelper
 
-  def haml_for_post(post)
-    if post.is_a? Tweet
-      render partial: "tweet", locals: {tweet: post}
-    else
-      render partial: "musing", locals: {musing: post}
-    end
-  end
-
-  def musing_company_url(company_name)
-    company_slug = company_name.downcase.gsub(/[^0-9a-z]/i, '')
-    company_url = "https://www.themuse.com/companies/" + company_slug
-    link_to company_name, company_url, class: "special-link", target: "blank"
-  end
-
-  def musing_hiring_statement(musing)
-    "#{musing.company_name} is hiring for: #{musing.title}."
-  end
-
-  def musing_apply_link_statement(apply_link)
-    encouragements = ["Interested?", "Apply!", "Apply today!", "Check it out!"]
-    encouragement = encouragements.sample
-    link_to encouragement, apply_link, class: "special-link", target: "blank"
+  def text_has_junior_terms?(text)
+    junior_terms = ["jr.", "junior", "interns", "entry-level", "entry level"]
+    junior_terms.any? { |term| text.include? term }
   end
 
   def tweet_hex_main_class(tweet)
     text = tweet.text.downcase
-    if text.include?("jr.") || text.include?("junior") || text.include?("interns")
+    if text_has_junior_terms? text
       "junior"
     elsif tweet.twitter_created_at > 35.minutes.ago
       "new-tweet"
@@ -47,7 +28,7 @@ module TweetsHelper
       filter_classes << hashtag if text.include? "##{hashtag}"
     end
 
-    filter_classes << "junior" if text.include?("jr.") || text.include?("junior") || text.include?("interns") || text.include?("entry-level") || text.include?("entry level")
+    filter_classes << "junior" if text_has_junior_terms? text
     filter_classes << "new-tweet" if tweet.twitter_created_at > 35.minutes.ago
     filter_classes << (tweet.by_friend ? "followed" : "searched")
     filter_classes << "remote" if text.include? "remote"

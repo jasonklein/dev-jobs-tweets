@@ -1,4 +1,4 @@
-class TweetsController < ApplicationController
+class HomeController < ApplicationController
   def index
 
     ### Split, combine and sort tweets to favor tweets from "friends"
