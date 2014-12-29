@@ -1,5 +1,7 @@
 #archive-header
   #archive-title
+    %span.mobile-only
+      = number_with_delimiter("5555", :delimiter => ',')
     DevJobs(?)Tweets
   #archive-color-key
     #color-key-junior.color-key-div
@@ -27,9 +29,12 @@
         %a{href: "https://www.themuse.com/", target: "_blank", class: "special-link"}
           The Muse
   #archive-notice
-    %p
+    %p.mobile-no-show
       = "There are #{@posts.count} jobs (?) listed below: #{@friends_count} from following, #{@strangers_count} from searching, and #{@musings_count} from The Muse."
-    %p Those from searching are deleted once a week old, from following are deleted once a month old, and from The Muse are deleted once three months old.
+    %p.mobile-no-show
+      Those from searching are deleted once a week old, from following are deleted once a month old, and from The Muse are deleted once three months old.
+    %p.mobile-only
+      = link_to "Home", root_path
 #archive-container
   - @posts.each do |post|
     .post-listing{class: post_listing_classes(post)}

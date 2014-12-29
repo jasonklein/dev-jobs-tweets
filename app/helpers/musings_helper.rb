@@ -10,8 +10,12 @@ module MusingsHelper
     "#{musing.company_name} is hiring for: #{musing.title}."
   end
 
+  def musing_archive_hiring_statement(musing)
+    raw "#{musing_company_url(musing.company_name)} is hiring for: #{musing.title}. #{musing_apply_link_statement(musing.apply_link)}"
+  end
+
   def musing_apply_link_statement(apply_link)
-    encouragements = ["Interested?", "Apply!", "Apply today!", "Check it out!"]
+    encouragements = ["Apply!", "Apply today!", "Check it out!"]
     encouragement = encouragements.sample
     link_to encouragement, apply_link, class: "special-link", target: "blank"
   end

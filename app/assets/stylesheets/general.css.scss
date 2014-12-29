@@ -1,8 +1,19 @@
 body {
   background-color: $base-body-color;
-  .mobile-no-show {
+  .non-desktop-no-show {
     @include media($large-screen-down) {
       display: none;
+    }
+  }
+  .mobile-no-show {
+    @include media($mobile-screen) {
+      display: none;
+    }
+  }
+  .mobile-only {
+    display: none;
+    @include media($mobile-screen) {
+      display: initial;
     }
   }
 }

@@ -2,7 +2,7 @@
   margin-top: 50px;
   margin-left: 75px;
   margin-right: 75px;
-  @include media($large-screen-down) {
+  @include media($mobile-screen) {
     margin: 20px 0 0 0;
   }
   #archive-title {
@@ -11,7 +11,7 @@
     color: $headline-color;
     line-height: 1.1;
     margin-bottom: 10px;
-    @include media($large-screen-down) {
+    @include media($mobile-screen) {
       text-align: center;
     }
   }

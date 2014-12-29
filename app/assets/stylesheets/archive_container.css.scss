@@ -4,12 +4,20 @@
   padding-right: 75px;
   font-size: $base-font-size * 1.2;
   line-height: $base-font-size * 1.7;
-  @include media($large-screen-down) {
+  @include media($mobile-screen) {
     padding: 0 10px 0px 10px;
+    font-size: $base-font-size * 1.2;
   }
   .post-listing {
     @include span-columns(12 of 12);
     @include row(table);
+    @include media($large-screen-down) {
+      margin-bottom: 4px;
+    }
+    @include media($mobile-screen) {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
     &.musing {
       background-color: $musing-color;
     }
@@ -38,21 +46,50 @@
       display: inline;
       &.source-logo {
         @include span-columns(1 of 12);
+        @include media($mobile-screen) {
+          display: none;
+        }
       }
       &.post-handle {
         @include span-columns(2 of 12);
+        word-wrap: break-word;
+        padding-right: 5px;
+        @include media($mobile-screen) {
+          display: none;
+        }
       }
       &.musing-post-text {
         @include span-columns(6 of 12);
+        @include media($mobile-screen) {
+          display: none;
+        }
+      }
+      &.mobile-musing-post-text {
+        display: none;
+        @include media($mobile-screen) {
+          @include span-columns(9 of 12);
+          padding-right: 10px;
+        }
       }
       &.musing-post-apply-link {
         @include span-columns(1 of 12);
+        @include media($mobile-screen) {
+          display: none;
+        }
       }
       &.tweet-post-text {
         @include span-columns(7 of 12);
+        @include media($mobile-screen) {
+          @include span-columns(9 of 12);
+          padding-right: 10px;
+        }
       }
       &.post-age {
-        @include span-columns(2 of 12);
+        @include span-columns(3 of 12);
+        padding-left: 3%;
+        @include media($mobile-screen) {
+          padding-left: 0;
+        }
       }
     }
   }

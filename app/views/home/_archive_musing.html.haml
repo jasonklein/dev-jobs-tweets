@@ -4,6 +4,8 @@
   = musing_company_url(musing.company_name)
 .post-listing-cell.musing-post-text
   = musing.title
+.post-listing-cell.mobile-musing-post-text
+  = musing_archive_hiring_statement(musing)
 .post-listing-cell.musing-post-apply-link
   = musing_apply_link_statement(musing.apply_link)
 .post-listing-cell.post-age{data: {"source-created-at" => musing.muse_created_at }}
