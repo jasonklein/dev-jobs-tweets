@@ -44,22 +44,17 @@
     }
     .post-listing-cell {
       display: inline;
-      &.source-logo {
-        @include span-columns(1 of 12);
-        @include media($mobile-screen) {
-          display: none;
-        }
-      }
       &.post-handle {
         @include span-columns(2 of 12);
         word-wrap: break-word;
         padding-right: 5px;
+        padding-left: 2px;
         @include media($mobile-screen) {
           display: none;
         }
       }
       &.musing-post-text {
-        @include span-columns(6 of 12);
+        @include span-columns(7 of 12);
         @include media($mobile-screen) {
           display: none;
         }
@@ -78,7 +73,7 @@
         }
       }
       &.tweet-post-text {
-        @include span-columns(7 of 12);
+        @include span-columns(8 of 12);
         @include media($mobile-screen) {
           @include span-columns(9 of 12);
           padding-right: 10px;
