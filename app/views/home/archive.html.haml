@@ -39,6 +39,14 @@
       page.
     %p.mobile-only
       = link_to "Home", root_path, class: "special-link"
+  #sort-buttons-container
+    #sort-buttons.button-group
+      %button{id: "chronological", class: "is-checked", data: {"sort-value" => "original-order"}}
+        chronological
+      %button{data: {"sort-value" => "post-category"}}
+        category
+      %button{data: {"sort-value" => "post-handle"}}
+        handle
 #archive-container
   - @posts.each do |post|
     .post-listing{class: post_listing_classes(post)}

@@ -34,4 +34,17 @@ module TweetsHelper
     filter_classes_string
   end
 
+  def archive_tweet_category(tweet)
+    text = tweet.text.downcase
+    if text_has_junior_terms? text
+      "junior"
+    else
+      if tweet.by_friend == true
+        "followed"
+      else
+        "searched"
+      end
+    end
+  end
+
 end

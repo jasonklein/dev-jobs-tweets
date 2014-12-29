@@ -42,6 +42,9 @@
     &.by-stranger-1 {
       background-color: $by-stranger-1-color;
     }
+    .post-category {
+      display: none;
+    }
     .post-listing-cell {
       display: inline;
       &.post-handle {
