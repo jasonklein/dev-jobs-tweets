@@ -1,6 +1,6 @@
 var DevJobsTweetsApp = DevJobsTweetsApp || {};
 
-DevJobsTweetsApp.filter_with_isotope = function() {
+DevJobsTweetsApp.isotopeFiltering = function() {
 
   var $container = $('#index-container').isotope({
     itemSelector: '.isotope-tweet',
@@ -8,6 +8,7 @@ DevJobsTweetsApp.filter_with_isotope = function() {
   });
 
   $('#filter-buttons').on( 'click', 'button', function() {
+    $(this).blur();
     var filterValue = $(this).attr('data-filter');
     $container.isotope({ filter: filterValue });
     $('#filter-buttons').find('.active-button').removeClass('active-button');
@@ -16,4 +17,36 @@ DevJobsTweetsApp.filter_with_isotope = function() {
 
 };
 
-$(DevJobsTweetsApp.filter_with_isotope);
+DevJobsTweetsApp.isotopeSorting = function() {
+
+  var $container = $('#archive-container').isotope({
+    layoutMode: 'vertical',
+    getSortData: {
+      category: '.post-category',
+      handle: '.post-handle'
+    }
+  });
+
+  // bind sort button click
+  $('#sort-buttons').on( 'click', 'button', function() {
+    $(this).blur();
+    var sortValue = $(this).attr('data-sort-value');
+    $container.isotope({ sortBy: sortValue });
+  });
+
+  // change is-checked class on buttons
+  $('.button-group').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.active-button').removeClass('active-button');
+      $(this).addClass('active-button');
+    });
+  });
+};
+
+DevJobsTweetsApp.setup = function() {
+  DevJobsTweetsApp.isotopeFiltering();
+  DevJobsTweetsApp.isotopeSorting();
+}
+
+$(DevJobsTweetsApp.setup);
