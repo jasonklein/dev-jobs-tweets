@@ -37,12 +37,12 @@ module TweetsHelper
   def archive_tweet_category(tweet)
     text = tweet.text.downcase
     if text_has_junior_terms? text
-      "junior"
+      1
     else
       if tweet.by_friend == true
-        "followed"
+        3
       else
-        "searched"
+        4
       end
     end
   end
