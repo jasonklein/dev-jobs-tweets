@@ -2,7 +2,7 @@ var DevJobsTweetsApp = DevJobsTweetsApp || {};
 
 DevJobsTweetsApp.filter_with_isotope = function() {
 
-  var $container = $('#tweets-container').isotope({
+  var $container = $('#index-container').isotope({
     itemSelector: '.isotope-tweet',
     layoutMode: 'fitRows'
   });
