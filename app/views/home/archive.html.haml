@@ -1,7 +1,7 @@
 #archive-header
   #archive-title
     %span.mobile-only
-      = number_with_delimiter("5555", :delimiter => ',')
+      = number_with_delimiter(@posts.count, :delimiter => ',')
     DevJobs(?)Tweets
   #archive-color-key
     #color-key-junior.color-key-div
@@ -33,8 +33,12 @@
       = "There are #{@posts.count} jobs (?) listed below: #{@friends_count} from following, #{@strangers_count} from searching, and #{@musings_count} from The Muse."
     %p.mobile-no-show
       Those from searching are deleted once a week old, from following are deleted once a month old, and from The Muse are deleted once three months old.
+    %p.mobile-no-show
+      For a filterable listing, visit the 
+      = link_to "home", root_path, class: "special-link"
+      page.
     %p.mobile-only
-      = link_to "Home", root_path
+      = link_to "Home", root_path, class: "special-link"
 #archive-container
   - @posts.each do |post|
     .post-listing{class: post_listing_classes(post)}

@@ -17,5 +17,8 @@
   }
   #archive-notice {
     font-size: $color-key-font-size;
+    @include media($large-screen-down) {
+      margin: 0 10px 10px 10px;
+    }
   }
 }
