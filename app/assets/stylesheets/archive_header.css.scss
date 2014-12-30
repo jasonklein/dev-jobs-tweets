@@ -21,4 +21,13 @@
       margin: 0 10px 10px 10px;
     }
   }
+  #sort-buttons-container {
+    margin-bottom: 20px;
+    @include media($large-screen-down) {
+      margin: 0 10px 10px 10px;
+    }
+    .active-button {
+      color: blue;
+    }
+  }
 }
