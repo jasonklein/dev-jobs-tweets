@@ -1,6 +1,6 @@
 .post-category
   2
-.post-listing-cell.post-handle
+.post-listing-cell.post-handle{data: {handle: musing.company_name.downcase}}
   = musing_company_url(musing.company_name)
 .post-listing-cell.musing-post-text
   = musing.title
@@ -8,5 +8,5 @@
   = musing_archive_hiring_statement(musing)
 .post-listing-cell.musing-post-apply-link
   = musing_apply_link_statement(musing.apply_link)
-.post-listing-cell.post-age{data: {"source-created-at" => musing.muse_created_at }}
+.post-listing-cell.post-age
   = "#{time_ago_in_words(musing.muse_created_at)} old".capitalize

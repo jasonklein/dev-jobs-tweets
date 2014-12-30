@@ -43,9 +43,9 @@
     #sort-buttons.button-group
       %button{id: "chronological", class: "active-button", data: {"sort-value" => "original-order"}}
         chronological
-      %button{data: {"sort-value" => "post-category"}}
+      %button{data: {"sort-value" => "category"}}
         category
-      %button{data: {"sort-value" => "post-handle"}}
+      %button{data: {"sort-value" => "handle"}}
         handle
 #archive-container
   - @posts.each do |post|

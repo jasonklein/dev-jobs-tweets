@@ -23,18 +23,19 @@ DevJobsTweetsApp.isotopeSorting = function() {
     layoutMode: 'vertical',
     getSortData: {
       category: '.post-category',
-      handle: '.post-handle'
+      handle: function(p) {
+        var handle = $(p).find(".post-handle").data("handle");
+        return handle;
+      }
     }
   });
 
-  // bind sort button click
   $('#sort-buttons').on( 'click', 'button', function() {
     $(this).blur();
     var sortValue = $(this).attr('data-sort-value');
     $container.isotope({ sortBy: sortValue });
   });
 
-  // change is-checked class on buttons
   $('.button-group').each( function( i, buttonGroup ) {
     var $buttonGroup = $( buttonGroup );
     $buttonGroup.on( 'click', 'button', function() {
