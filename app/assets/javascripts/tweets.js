@@ -26,6 +26,10 @@ DevJobsTweetsApp.isotopeSorting = function() {
       handle: function(p) {
         var handle = $(p).find(".post-handle").data("handle");
         return handle;
+      },
+      age: function(p) {
+        var age = $(p).find(".post-age").data("source-created-at");
+        return age;
       }
     }
   });
@@ -33,7 +37,12 @@ DevJobsTweetsApp.isotopeSorting = function() {
   $('#sort-buttons').on( 'click', 'button', function() {
     $(this).blur();
     var sortValue = $(this).attr('data-sort-value');
-    $container.isotope({ sortBy: sortValue });
+    $container.isotope({
+      sortBy: [sortValue, "age"],
+      sortAscending: {
+        age: false
+      }
+    });
   });
 
   $('.button-group').each( function( i, buttonGroup ) {

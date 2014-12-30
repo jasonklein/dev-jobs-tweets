@@ -8,5 +8,5 @@
   = musing_archive_hiring_statement(musing)
 .post-listing-cell.musing-post-apply-link
   = musing_apply_link_statement(musing.apply_link)
-.post-listing-cell.post-age
+.post-listing-cell.post-age{data: {"source-created-at" => musing.muse_created_at }}
   = "#{time_ago_in_words(musing.muse_created_at)} old".capitalize

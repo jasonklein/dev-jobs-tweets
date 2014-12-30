@@ -4,5 +4,5 @@
   = link_to tweet.tweeter_handle, tweet.tweeter_url, target: "blank"
 .post-listing-cell.tweet-post-text
   = auto_link(tweet.text, html: {target: 'blank'})
-.post-listing-cell.post-age
+.post-listing-cell.post-age{data: {"source-created-at" => tweet.twitter_created_at }}
   = "#{time_ago_in_words(tweet.twitter_created_at)} old".capitalize
