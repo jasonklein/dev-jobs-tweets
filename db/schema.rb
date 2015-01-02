@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141227002117) do
+ActiveRecord::Schema.define(:version => 20150102234626) do
 
   create_table "hashtags", :force => true do |t|
     t.string   "text"
@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(:version => 20141227002117) do
     t.string   "apply_link"
     t.string   "company_logo"
     t.datetime "muse_created_at"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "company_name"
+    t.boolean  "for_juniors",     :default => false
   end
 
   create_table "taggings", :force => true do |t|
