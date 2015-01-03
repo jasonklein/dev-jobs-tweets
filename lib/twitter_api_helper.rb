@@ -112,15 +112,14 @@ module TwitterApiHelper
             t.remote_tweeter_avatar_url = tweet["user"]["profile_image_url"]
             t.twitter_created_at = tweet["created_at"]
             t.by_friend = friends_ids ? attribute_for_tweet_by_friend(friends_ids, tweeter_id) : true
+            if text_has_junior_terms?(text)
+              t.for_juniors = true
+            end
             t.add_hashtags(hashtags_data)
           end
         end
       end
     end
-  end
-
-
-  def check_for_duplicate_tweets()
   end
 
   def tweet_seems_relevant(text, provenance)
@@ -148,6 +147,12 @@ module TwitterApiHelper
         false
       end
     end 
+  end
+
+  def text_has_junior_terms?(text)
+    text = text.downcase
+    junior_terms = ["jr.", "junior", "interns", "entry-level", "entry level"]
+    junior_terms.any? { |term| text.include? term }
   end
 
   def get_and_save_tweets

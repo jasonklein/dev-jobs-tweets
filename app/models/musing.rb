@@ -4,4 +4,5 @@ class Musing < ActiveRecord::Base
   mount_uploader :company_logo, CompanyLogoUploader
 
   default_scope order('muse_created_at DESC')
+
 end

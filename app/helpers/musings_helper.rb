@@ -1,5 +1,9 @@
 module MusingsHelper
 
+  def junior_class_if_junior(musing)
+    "junior" if musing.for_juniors == true
+  end
+
   def musing_company_url(company_name)
     company_slug = company_name.downcase.gsub(/[^0-9a-z]/i, '')
     company_url = "https://www.themuse.com/companies/" + company_slug

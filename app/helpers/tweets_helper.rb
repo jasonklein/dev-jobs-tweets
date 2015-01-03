@@ -1,10 +1,5 @@
 module TweetsHelper
 
-  def text_has_junior_terms?(text)
-    junior_terms = ["jr.", "junior", "interns", "entry-level", "entry level"]
-    junior_terms.any? { |term| text.include? term }
-  end
-
   def tweet_hex_main_class(tweet)
     text = tweet.text.downcase
     if text_has_junior_terms? text
@@ -26,7 +21,7 @@ module TweetsHelper
       filter_classes << hashtag if text.include? "##{hashtag}"
     end
 
-    filter_classes << "junior" if text_has_junior_terms? text
+    filter_classes << "junior" if tweet.for_juniors == true
     filter_classes << (tweet.by_friend ? "followed" : "searched")
     filter_classes << "remote" if text.include? "remote"
     filter_classes = filter_classes.uniq
@@ -35,8 +30,7 @@ module TweetsHelper
   end
 
   def archive_tweet_category(tweet)
-    text = tweet.text.downcase
-    if text_has_junior_terms? text
+    if tweet.for_juniors == true
       1
     else
       if tweet.by_friend == true
