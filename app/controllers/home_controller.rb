@@ -4,14 +4,14 @@ class HomeController < ApplicationController
     ### Split, combine and sort tweets to favor tweets from "friends"
     ### over tweets from searching
 
-    friends_tweets = Tweet.by_friends.limit(200)
-    stranger_tweets_limit = 300 - friends_tweets.count
+    friends_tweets = Tweet.by_friends.limit(150)
+    stranger_tweets_limit = 250 - friends_tweets.count
     stranger_tweets = Tweet.by_strangers.limit(stranger_tweets_limit)
     unsorted_tweets = friends_tweets + stranger_tweets
 
     @hashtags = get_hashtags_for_limited_tweets(unsorted_tweets)
 
-    musings = Musing.all
+    musings = Musing.first(50)
 
     @posts = sort_tweets_and_musings unsorted_tweets, musings
   end
