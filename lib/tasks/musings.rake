@@ -4,7 +4,9 @@ include MuseApiHelper
 namespace :musings do
   desc "Get job posts from The Muse"
   task :get => :environment do
-    get_and_save_musings
+    if Time.now.sunday? || Time.now.wednesday?
+      get_and_save_musings
+    end
   end
 
   desc "Destroy old musings"
