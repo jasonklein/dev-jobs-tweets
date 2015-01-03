@@ -4,7 +4,7 @@ module MuseApiHelper
   end
 
   def initial_api_url
-    "/api/v1/jobs?job_category%5B%5D=Engineering&job_level%5B%5D=Internship&job_level%5B%5D=Entry+Level&page=0&descending=true"
+    "/api/v1/jobs?job_category%5B%5D=Engineering&page=0&descending=true"
   end
 
   def initial_request_url
@@ -62,6 +62,10 @@ module MuseApiHelper
         m.muse_created_at = result["update_date"]
         m.remote_company_logo_url = result["company_small_logo_image"]
         m.company_name = result["company_name"]
+
+        if ["internship", "entry"].any? { |t| results.last["levels"].include? t }
+          m.for_juniors = true
+        end
       end
     end
   end
