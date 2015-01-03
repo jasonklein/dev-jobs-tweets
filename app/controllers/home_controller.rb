@@ -23,6 +23,7 @@ class HomeController < ApplicationController
     @friends_count = Tweet.by_friends.count
     @strangers_count = Tweet.by_strangers.count
     @musings_count = Musing.count
+    @juniors_count = Tweet.where(for_juniors: true).count + Musing.where(for_juniors: true).count
   end
 
   def get_hashtags_for_limited_tweets(tweets)
