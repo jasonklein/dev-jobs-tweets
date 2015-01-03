@@ -63,7 +63,7 @@ module MuseApiHelper
         m.remote_company_logo_url = result["company_small_logo_image"]
         m.company_name = result["company_name"]
 
-        if ["internship", "entry"].any? { |t| results.last["levels"].include? t }
+        if ["internship", "entry"].any? { |t| result["levels"].include? t }
           m.for_juniors = true
         end
       end
