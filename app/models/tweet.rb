@@ -1,5 +1,5 @@
 class Tweet < ActiveRecord::Base
-  attr_accessible :text, :twitter_id, :tweeter, :tweeter_id, :by_friend, :twitter_created_at, :tweeter_avatar
+  attr_accessible :text, :twitter_id, :tweeter, :tweeter_id, :by_friend, :twitter_created_at, :tweeter_avatar, :for_juniors
 
   has_many :taggings, dependent: :destroy
   has_many :hashtags, through: :taggings
