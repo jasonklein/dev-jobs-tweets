@@ -30,7 +30,7 @@
           The Muse
   #archive-notice
     %p.mobile-no-show
-      = "There are #{@posts.count} jobs (?) listed below: #{@juniors_count} for juniors (tweets ane The Muse), #{@friends_count} from following, #{@strangers_count} from searching, and #{@musings_count} from The Muse."
+      = "There are #{number_with_delimiter(@posts.count, :delimiter => ',')} jobs (?) listed below: #{@juniors_count} for juniors (tweets ane The Muse), #{@friends_count} from following, #{@strangers_count} from searching, and #{@musings_count} from The Muse."
     %p.mobile-no-show
       Those from searching are deleted once a week old, from following are deleted once a month old, and from The Muse are deleted once three months old.
     %p.mobile-no-show
