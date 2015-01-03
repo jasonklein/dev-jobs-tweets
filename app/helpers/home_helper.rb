@@ -16,7 +16,7 @@ module HomeHelper
     end
   end
 
-  def post_listing_classes(post)
+  def archive_listing_classes(post)
     classes = []
     if post.is_a? Musing
       classes << "musing"

@@ -49,5 +49,5 @@
         handle
 #archive-container
   - @posts.each do |post|
-    .post-listing{class: post_listing_classes(post)}
+    .post-listing{class: archive_listing_classes(post)}
       = haml_for_post post
