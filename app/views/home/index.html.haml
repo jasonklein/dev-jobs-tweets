@@ -13,10 +13,16 @@
       %a{href: "https://www.themuse.com/", target: "_blank", class: "special-link"}
         The Muse 
       for developer jobs.
-    %h5 *Updates from Twitter hourly and The Muse twice weekly.
-    %h5.non-desktop-no-show *No guarantee that any of the  below pertain to dev jobs or that all the dev jobs have been found (c'mon).
+    %h5 *Updates from Twitter hourly and The Muse twice weekly
+    %h5.non-desktop-no-show *No guarantee that any of the  below pertain to dev jobs or that all the dev jobs have been found (c'mon)
     %h5 *Search parameters emphasize junior ruby/rails roles
-    %h5.non-desktop-no-show *Below are the most recent 300 (favoring followed/The Muse over searched) of all results.
+    %h5
+      *Below are the most recent 300
+      %span.non-desktop-no-show
+        (favoring followed/The Muse over searched) of all results. Visit the
+        = link_to "Archive", archive_path, class: "special-link"
+        for a sortable list of all results.
+    %h5.non-desktop-only = link_to "*Archive", archive_path, class: "special-link"
     #index-color-key
       %h3 Color Key
       #color-key-junior.color-key-div

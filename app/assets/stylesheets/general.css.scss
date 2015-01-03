@@ -5,6 +5,12 @@ body {
       display: none;
     }
   }
+  .non-desktop-only {
+    display: none;
+    @include media($large-screen-down) {
+      display: initial;
+    }
+  }
   .mobile-no-show {
     @include media($mobile-screen) {
       display: none;
