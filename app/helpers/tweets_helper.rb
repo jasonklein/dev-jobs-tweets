@@ -2,7 +2,7 @@ module TweetsHelper
 
   def tweet_hex_main_class(tweet)
     text = tweet.text.downcase
-    if text_has_junior_terms? text
+    if tweet.for_juniors == true
       "junior"
     else
       if tweet.by_friend == true
