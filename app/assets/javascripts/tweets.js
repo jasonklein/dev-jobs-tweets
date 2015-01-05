@@ -56,7 +56,9 @@ DevJobsTweetsApp.isotopeSorting = function() {
 
 DevJobsTweetsApp.setup = function() {
   DevJobsTweetsApp.isotopeFiltering();
-  DevJobsTweetsApp.isotopeSorting();
+  if(window.innerWidth > 1000) {
+    DevJobsTweetsApp.isotopeSorting();
+  }
 }
 
 $(DevJobsTweetsApp.setup);
