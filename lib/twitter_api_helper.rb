@@ -151,7 +151,7 @@ module TwitterApiHelper
 
   def text_has_junior_terms?(text)
     text = text.downcase
-    junior_terms = ["jr.", "junior", "interns", "entry-level", "entry level"]
+    junior_terms = ["jr.", "junior", "interns", "entry-level", "entry level", "jrdevjob"]
     junior_terms.any? { |term| text.include? term }
   end
 
