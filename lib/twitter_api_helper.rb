@@ -121,10 +121,15 @@ module TwitterApiHelper
     end
   end
 
+  ### Tweets from searching were pulled from Twitter because they have dev terms
+  ### so they are marked as relevant if they also have terms indicating hiring.
+  ### Tweets from the home timeline are marked relevant if they have both
+  ### dev terms and hiring terms.
+
   def tweet_seems_relevant(text, provenance)
     text = text.downcase
     relevance_count = 0
-    search_filter_terms = ["job", "vacancy", "position", "opening", "hiring"]
+    search_filter_terms = ["job", "vacancy", "position", "opening", "hiring", "looking", "needs"]
 
     if provenance == "search"
       search_filter_terms.each do |term|
