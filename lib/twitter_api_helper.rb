@@ -126,8 +126,8 @@ module TwitterApiHelper
 
   def tweet_seems_relevant(text, provenance)
     text = text.downcase
-    hiring_terms = ["job", "vacancy", "position", "opening", "hiring", "looking", "needs", "gig"]
-    dev_terms = ["jr", "junior", "software", "web", "dev", "engineer", "ruby", "rails", "javascript", "html", "css"]
+    hiring_terms = ["job", "vacancy", "position", "opening", "hiring", "hire", "looking", "needs", "gig"]
+    dev_terms = ["jr", "junior", "software", "web", "dev", "engineer", "ruby", "rails", "javascript", "html", "css", "stack", "front", "back"]
 
     if provenance == "search"
       hiring_terms.any? { |term| text.include? term }
