@@ -122,7 +122,7 @@ module TwitterApiHelper
   end
 
   ### Tweets from searching: relevant if they have hiring terms
-  ### Tweets from the timeline: relevant if they have multiple dev or dev and hiring terms
+  ### Tweets from the timeline: relevant if they have multiple dev terms or dev and hiring terms
 
   def tweet_seems_relevant(text, provenance)
     text = text.downcase
