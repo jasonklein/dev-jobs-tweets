@@ -121,36 +121,29 @@ module TwitterApiHelper
     end
   end
 
-  ### Tweets from searching were pulled from Twitter because they have dev terms
-  ### so they are marked as relevant if they also have terms indicating hiring.
-  ### Tweets from the home timeline are marked relevant if they have both
-  ### dev terms and hiring terms.
+  ### Tweets from searching: relevant if they have hiring terms
+  ### Tweets from the timeline: relevant if they have multiple dev or dev and hiring terms
 
   def tweet_seems_relevant(text, provenance)
     text = text.downcase
-    relevance_count = 0
-    search_filter_terms = ["job", "vacancy", "position", "opening", "hiring", "looking", "needs"]
+    hiring_terms = ["job", "vacancy", "position", "opening", "hiring", "looking", "needs", "gig"]
+    dev_terms = ["jr", "junior", "software", "web", "dev", "engineer", "ruby", "rails", "javascript", "html", "css"]
 
     if provenance == "search"
-      search_filter_terms.each do |term|
-        relevance_count += 1 if text.include?(term)
-      end
-      if relevance_count > 0
-        true
-      else
-        false
-      end
+      hiring_terms.any? { |term| text.include? term }
     else
-      home_filter_terms = search_filter_terms + ["jr", "web", "dev", "engineer", "ruby", "rails"]
-      home_filter_terms.each do |term|
-        relevance_count += 1 if text.include?(term)
+      dev_terms_count = 0
+      dev_terms.each do |term|
+        dev_terms_count += 1 if text.include? term
       end
-      if relevance_count >= 2
+      if dev_terms_count > 1
         true
+      elsif dev_terms_count == 1
+        hiring_terms.any? { |term| text.include? term }
       else
         false
       end
-    end 
+    end
   end
 
   def text_has_junior_terms?(text)
