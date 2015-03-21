@@ -51,7 +51,7 @@ module TwitterApiHelper
   end
 
   def searches_data
-    search_url_term_pairs = [["ruby", "developer"],["web","developer"],["junior","developer"],["web","designer"]]
+    search_url_term_pairs = [["ruby", "developer"],["web","developer"],["junior","developer"],["web","designer"], ["software","engineer"],["javascript","developer"]]
     tweets = []
 
     search_url_term_pairs.each do |pair|
@@ -124,7 +124,7 @@ module TwitterApiHelper
   def tweet_seems_relevant(text, provenance)
     text = text.downcase
     relevance_count = 0
-    search_filter_terms = ["job", "vacancy", "position", "opening"]
+    search_filter_terms = ["job", "vacancy", "position", "opening", "hiring"]
 
     if provenance == "search"
       search_filter_terms.each do |term|
