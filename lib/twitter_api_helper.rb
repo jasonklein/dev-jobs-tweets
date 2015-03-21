@@ -47,7 +47,6 @@ module TwitterApiHelper
 
   def home_timeline_data
     tweets = get_dev_jobs_tweets_array(oauth_access_token, twitter_api_home_timeline_url, "home")
-    provenance = "home"
     { twitter_response: tweets || [], provenance: "home" }
   end
 
