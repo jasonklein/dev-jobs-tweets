@@ -11,11 +11,11 @@ module MusingsHelper
   end
 
   def musing_hiring_statement(musing)
-    "#{musing.company_name} is hiring for: #{musing.title}."
+    "#{musing.company_name} is hiring: #{musing.title}."
   end
 
   def musing_archive_hiring_statement(musing)
-    raw "#{musing_company_url(musing.company_name)} is hiring for: #{musing.title}. #{musing_apply_link_statement(musing.apply_link)}"
+    raw "#{musing_company_url(musing.company_name)} is hiring: #{musing.title}. #{musing_apply_link_statement(musing.apply_link)}"
   end
 
   def musing_apply_link_statement(apply_link)
